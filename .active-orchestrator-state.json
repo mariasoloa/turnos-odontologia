@@ -1,6 +1,6 @@
 {
   "version": 5,
-  "step": "task-management",
+  "step": "registry",
   "owner": "active-orchestrator",
   "discovery": {
     "created_by": "discovery-research",
@@ -114,22 +114,47 @@
     "changes_file": "CHANGES.md",
     "changes": ["C-01", "C-02", "C-03", "C-04", "C-05", "C-06", "C-07", "C-08", "C-09", "C-10", "C-11", "C-12", "C-13", "C-14", "C-15", "C-16", "C-17", "C-18"]
   },
+  "skills": {
+    "recommended_on": "2026-11-24",
+    "mode": "recommend-only",
+    "recommended": [
+      {"skill": "better-auth/skills@better-auth-best-practices", "installs": "134K", "fit": "alta", "changes": ["C-03", "C-05"]},
+      {"skill": "better-auth/skills@two-factor-authentication-best-practices", "installs": "37.5K", "fit": "alta", "changes": ["C-03"]},
+      {"skill": "better-auth/skills@organization-best-practices", "installs": "39.1K", "fit": "alta", "changes": ["C-03", "C-05"]},
+      {"skill": "better-auth/skills@better-auth-security-best-practices", "installs": "52.7K", "fit": "alta", "changes": ["C-03"]},
+      {"skill": "supabase/agent-skills@supabase-postgres-best-practices", "installs": "496.7K", "fit": "alta", "changes": ["C-02", "C-08", "C-16"]},
+      {"skill": "vercel-labs/agent-skills@vercel-react-best-practices", "installs": "929K", "fit": "alta", "changes": ["C-11", "C-14"]},
+      {"skill": "resend/resend-skills@resend", "installs": "25.1K", "fit": "alta", "changes": ["C-13"]},
+      {"skill": "resend/react-email@react-email", "installs": "10.2K", "fit": "alta", "changes": ["C-13"]},
+      {"skill": "currents-dev/playwright-best-practices-skill@playwright-best-practices", "installs": "111.4K", "fit": "alta", "changes": ["C-01", "C-11", "C-14", "C-15"]},
+      {"skill": "antfu/skills@vitest", "installs": "49.4K", "fit": "alta", "changes": ["C-01", "C-08", "C-09"]},
+      {"skill": "mattpocock/skills@tdd", "installs": "1.3M", "fit": "media", "changes": ["C-08", "C-09"]},
+      {"skill": "supabase/agent-skills@supabase", "installs": "374.3K", "fit": "media", "changes": ["C-02", "C-13", "C-17"]},
+      {"skill": "vercel-labs/openreview@next-best-practices", "installs": "7.2K", "fit": "media", "changes": ["C-01", "C-14"]},
+      {"skill": "resend/email-best-practices@email-best-practices", "installs": "8.4K", "fit": "media", "changes": ["C-13", "C-17"]},
+      {"skill": "addyosmani/agent-skills@security-and-hardening", "installs": "91.7K", "fit": "media", "changes": ["C-14", "C-16"]},
+      {"skill": "getsentry/skills@security-review", "installs": "24.7K", "fit": "media", "changes": ["C-03", "C-14", "C-16"]},
+      {"skill": "github/awesome-copilot@github-actions-hardening", "installs": "3K", "fit": "baja", "changes": ["C-01", "C-17"]},
+      {"skill": "giuseppe-trisciuoglio/developer-kit@drizzle-orm-patterns", "installs": "6.1K", "fit": "baja", "changes": ["C-02", "C-08"]}
+    ],
+    "installed": []
+  },
   "foundation": {
     "version": 1,
     "approved_on": "2026-11-24",
     "route": "foundation",
-    "order": ["discovery", "kb", "roadmap", "task-management", "team-mode", "memory-policy", "find-skill", "registry", "agents"],
+    "order": ["discovery", "kb", "roadmap", "find-skill", "registry", "agents"],
     "phases": {
       "discovery": {"variant": "interview", "status": "done", "requires": [], "outputs": ["docs/discovery/discovery.md"], "completed_on": "2026-11-24", "note": "Ruta movida de discovery/ a docs/discovery/ a pedido del usuario."},
       "kb": {"variant": "interview", "status": "done", "requires": ["discovery"], "outputs": ["knowledge-base/"], "completed_on": "2026-11-24", "approved_by": "user"},
       "visual-design": {"variant": "system-and-mockups", "status": "skipped", "requires": ["kb"], "outputs": [], "decided_on": "2026-11-24", "reason": "Salteada a pedido del usuario: no hace falta diseño de interfaz gráfica en este TP."},
       "roadmap": {"variant": "local-markdown", "status": "done", "completed_on": "2026-11-24", "requires": ["kb"], "outputs": ["CHANGES.md"]},
-      "task-management": {"variant": "local", "status": "pending", "requires": ["roadmap"], "outputs": [".active-stack/roadmap.json"]},
-      "team-mode": {"variant": "new", "status": "pending", "requires": ["roadmap", "task-management"], "outputs": [".active-stack/team.json", ".github/pull_request_template.md", ".github/CODEOWNERS"]},
-      "memory-policy": {"variant": "cloud-branch", "status": "pending", "requires": ["team-mode"], "outputs": [".engram/config.json", ".engram/active-stack.json"]},
-      "find-skill": {"variant": "recommend", "status": "pending", "requires": ["kb"], "outputs": []},
+      "task-management": {"variant": "local", "status": "skipped", "requires": ["roadmap"], "outputs": [], "decided_on": "2026-11-24", "reason": "Salteada a pedido del usuario."},
+      "team-mode": {"variant": "new", "status": "skipped", "requires": ["roadmap"], "outputs": [], "decided_on": "2026-11-24", "reason": "Salteada a pedido del usuario."},
+      "memory-policy": {"variant": "deferred", "status": "deferred", "requires": [], "outputs": [], "decided_on": "2026-11-24", "reason": "Salteada a pedido del usuario; se puede retomar con /active-orchestrator memory."},
+      "find-skill": {"variant": "recommend", "status": "done", "requires": ["kb"], "outputs": [], "completed_on": "2026-11-24"},
       "registry": {"variant": "index", "status": "pending", "requires": ["find-skill"], "outputs": [".atl/skill-registry.md"]},
-      "agents": {"variant": "generate", "status": "pending", "requires": ["kb", "roadmap", "registry", "team-mode", "memory-policy"], "outputs": ["CLAUDE.md"]}
+      "agents": {"variant": "generate", "status": "pending", "requires": ["kb", "roadmap", "registry"], "outputs": ["CLAUDE.md"]}
     }
   }
 }
