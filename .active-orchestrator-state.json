@@ -1,0 +1,101 @@
+{
+  "version": 5,
+  "step": "kb",
+  "owner": "active-orchestrator",
+  "discovery": {
+    "created_by": "discovery-research",
+    "file": "docs/discovery/discovery.md",
+    "completed_on": "2026-11-24",
+    "market_report": "docs/discovery/informe-discovery.md",
+    "sources_fetched_at": "2026-11-24",
+    "sources_verification": "pending (revisión manual de 5 fuentes por el usuario)",
+    "sources": [
+      "https://www.softwaredentalink.com/ar", "https://bilog.com.ar/", "https://dentalsoft.com.ar/", "https://dentia.tech/",
+      "https://www.oclusar.com.ar/", "https://www.appzyra.ar/", "https://web.dentaltec.com.ar/", "https://odonto.ar/",
+      "https://vectora.ar/pages/vecdent/", "https://atiendoapp.com/", "https://www.agenda-profesional.com/", "https://pro.doctoralia.com/ar",
+      "https://reservo.cl/ar/", "https://odontograma.com.ar/", "https://www.doctocliq.com/", "https://www.mrdentalcloud.com/",
+      "https://www.clinicorp.com/", "https://clinic-cloud.com/", "https://www.dentally.com/en-gb/"
+    ],
+    "competitors": [
+      {"name": "Dentia", "notes_file": "docs/discovery/informe-discovery.md", "score": 4.55},
+      {"name": "DentalSoft", "notes_file": "docs/discovery/informe-discovery.md", "score": 4.30},
+      {"name": "Oclusar", "notes_file": "docs/discovery/informe-discovery.md", "score": 3.95},
+      {"name": "Atiendo", "notes_file": "docs/discovery/informe-discovery.md", "score": 3.80},
+      {"name": "Dentalink", "notes_file": "docs/discovery/informe-discovery.md", "score": 3.70},
+      {"name": "Bilog", "notes_file": "docs/discovery/informe-discovery.md", "score": 3.45}
+    ],
+    "problema": "Los consultorios odontológicos argentinos pierden tiempo coordinando turnos por WhatsApp/teléfono, les cuesta organizar la agenda de varios profesionales y sillones/boxes sin solapamientos, y sufren ausencias de pacientes sin aviso.",
+    "usuarios": ["Paciente", "Recepcionista", "Odontólogo", "Administrador / dueño"],
+    "casos_de_uso": [
+      "Como administrador, quiero cargar profesionales, sillones, horarios y prestaciones con su duración",
+      "Como recepcionista, quiero dar, mover y cancelar turnos sin solapamientos de profesional y sillón",
+      "Como paciente, quiero reservar online eligiendo prestación y profesional o cualquier disponible",
+      "Como paciente, quiero recibir confirmación y recordatorio por email con link para cancelar",
+      "Como odontólogo, quiero ver mi agenda del día con la ficha básica de cada paciente"
+    ],
+    "funcionalidades_necesarias": [
+      "Agenda por profesional y sillón/box sin solapamientos",
+      "Prestaciones configurables con duración y opción sin sillón",
+      "Ficha básica del paciente (nombre, DNI, email, teléfono, obra social/prepaga, notas)",
+      "Autoturnos online sin cuenta",
+      "Emails de confirmación, cancelación y recordatorio 24 h antes",
+      "Multi-consultorio con datos aislados y suscripción mensual"
+    ],
+    "funcionalidades_opcionales": [
+      "Recordatorios con confirmación",
+      "Lista de espera",
+      "Historia clínica y odontograma (módulo opcional)",
+      "WhatsApp Business API, Mercado Pago, Google Calendar, obras sociales/prepagas"
+    ],
+    "reglas_de_negocio": [
+      "Las prácticas ocupan profesional y sillón sin solapamientos; la consulta breve puede no ocupar sillón",
+      "El paciente elige profesional o cualquier disponible",
+      "Cancelación sin penalidad hasta 24 h antes; con menos se registra como cancelación tardía sin bloquear",
+      "Se registran ausencias; tras 3 sin aviso se bloquea la reserva online (configurable por consultorio)",
+      "Paciente identificado por DNI dentro de cada consultorio; pacientes separados por consultorio",
+      "Suscripción mensual por consultorio; gratis para el paciente"
+    ],
+    "integraciones": ["Email (MVP)", "WhatsApp Business API (posterior)", "Mercado Pago (posterior)", "Google Calendar (posterior)", "Obras sociales/prepagas (posterior)"],
+    "restricciones": [
+      "Varias semanas, sin consultorio piloto todavía",
+      "Stack a definir en la KB: simple y fácil de testear automáticamente",
+      "Infraestructura gratuita o de bajo costo",
+      "Web responsive, sin app nativa en la v1",
+      "Cumplimiento de la Ley 25.326"
+    ],
+    "riesgos": [
+      "Resistencia al cambio de consultorios que usan WhatsApp/papel (supuesto sin validar: pacientes prefieren reservar online)",
+      "Competencia de SaaS odontológicos locales no relevados",
+      "Precio competitivo para el mercado argentino sin definir",
+      "Datos de salud sensibles (Ley 25.326): consentimiento, seguridad y aislamiento entre consultorios",
+      "DNI no verificado: reservas con DNI ajeno o evasión del bloqueo",
+      "Sin piloto no se puede medir si el recordatorio por email reduce ausencias"
+    ],
+    "preguntas_abiertas": [
+      "Qué SaaS odontológicos compiten, qué ofrecen y cuánto cobran",
+      "Precio, planes y prueba gratuita de la suscripción",
+      "Inscripción ante la AAIP y texto de consentimiento del paciente",
+      "Límite de las notas de la ficha para no guardar datos clínicos antes del módulo de historia clínica",
+      "Cómo conseguir un primer consultorio piloto",
+      "Link de cancelación sin identificarse mediante token de un solo uso"
+    ]
+  },
+  "foundation": {
+    "version": 1,
+    "approved_on": "2026-11-24",
+    "route": "foundation",
+    "order": ["discovery", "kb", "visual-design", "roadmap", "task-management", "team-mode", "memory-policy", "find-skill", "registry", "agents"],
+    "phases": {
+      "discovery": {"variant": "interview", "status": "done", "requires": [], "outputs": ["docs/discovery/discovery.md"], "completed_on": "2026-11-24", "note": "Ruta movida de discovery/ a docs/discovery/ a pedido del usuario."},
+      "kb": {"variant": "interview", "status": "pending", "requires": ["discovery"], "outputs": ["knowledge-base/"]},
+      "visual-design": {"variant": "system-and-mockups", "status": "pending", "requires": ["kb"], "outputs": ["design-system/"]},
+      "roadmap": {"variant": "local-markdown", "status": "pending", "requires": ["kb"], "outputs": ["CHANGES.md"]},
+      "task-management": {"variant": "local", "status": "pending", "requires": ["roadmap"], "outputs": [".active-stack/roadmap.json"]},
+      "team-mode": {"variant": "new", "status": "pending", "requires": ["roadmap", "task-management"], "outputs": [".active-stack/team.json", ".github/pull_request_template.md", ".github/CODEOWNERS"]},
+      "memory-policy": {"variant": "cloud-branch", "status": "pending", "requires": ["team-mode"], "outputs": [".engram/config.json", ".engram/active-stack.json"]},
+      "find-skill": {"variant": "recommend", "status": "pending", "requires": ["kb"], "outputs": []},
+      "registry": {"variant": "index", "status": "pending", "requires": ["find-skill"], "outputs": [".atl/skill-registry.md"]},
+      "agents": {"variant": "generate", "status": "pending", "requires": ["kb", "roadmap", "registry", "team-mode", "memory-policy"], "outputs": ["CLAUDE.md"]}
+    }
+  }
+}
