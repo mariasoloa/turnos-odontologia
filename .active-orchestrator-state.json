@@ -1,6 +1,6 @@
 {
   "version": 5,
-  "step": "registry",
+  "step": "done",
   "owner": "active-orchestrator",
   "discovery": {
     "created_by": "discovery-research",
@@ -139,6 +139,17 @@
     ],
     "installed": []
   },
+  "registry": {
+    "created_by": "skill-registry",
+    "file": ".atl/skill-registry.md",
+    "generated_on": "2026-11-24",
+    "skills": ["active-delivery", "active-orchestrator", "active-roadmap", "agent-instruction", "design-system", "design-taste-frontend-v1", "discovery-research", "emil-design-eng", "find-skill", "kb-creator", "roadmap-generator", "skill-creator", "web-scraper"]
+  },
+  "agents": {
+    "created_by": "agent-instruction",
+    "files": ["AGENTS.md", "CLAUDE.md"],
+    "reglas_applied": ["with-tenant", "tabla-rls-test", "solapamientos-exclude", "migraciones-drizzle-kit", "sin-datos-reales-pacientes", "sin-any-zod", "tests-postgres-real", "dominio-puro", "fechas-shared-time", "logs-sin-datos-personales", "sin-datos-clinicos", "notificar-por-outbox", "secretos-fuera-del-repo", "commits-solo-a-pedido", "responder-en-espanol", "solo-pnpm", "decisiones-alta-antes-de-produccion"]
+  },
   "foundation": {
     "version": 1,
     "approved_on": "2026-11-24",
@@ -153,8 +164,8 @@
       "team-mode": {"variant": "new", "status": "skipped", "requires": ["roadmap"], "outputs": [], "decided_on": "2026-11-24", "reason": "Salteada a pedido del usuario."},
       "memory-policy": {"variant": "deferred", "status": "deferred", "requires": [], "outputs": [], "decided_on": "2026-11-24", "reason": "Salteada a pedido del usuario; se puede retomar con /active-orchestrator memory."},
       "find-skill": {"variant": "recommend", "status": "done", "requires": ["kb"], "outputs": [], "completed_on": "2026-11-24"},
-      "registry": {"variant": "index", "status": "pending", "requires": ["find-skill"], "outputs": [".atl/skill-registry.md"]},
-      "agents": {"variant": "generate", "status": "pending", "requires": ["kb", "roadmap", "registry"], "outputs": ["CLAUDE.md"]}
+      "registry": {"variant": "index", "status": "done", "completed_on": "2026-11-24", "requires": ["find-skill"], "outputs": [".atl/skill-registry.md"]},
+      "agents": {"variant": "generate", "status": "done", "requires": ["kb", "roadmap", "registry"], "outputs": ["AGENTS.md", "CLAUDE.md"], "completed_on": "2026-11-24", "note": "AGENTS.md agregado a pedido del usuario."}
     }
   }
 }
