@@ -135,6 +135,7 @@ Paso │ Agente A (Backend Core)      │ Agente B (Backend Aux)        │ Agen
 
 ### [C-01] `project-scaffolding`
 - **Estado**: `[ ]` pendiente
+- **Avance parcial** (change OpenSpec `turnos-sin-solapamiento`, archivado el 25/11/2026, commit `a0235e2`): ya existen TypeScript `strict` + pnpm + ESLint, `src/shared/time/` con tests (RN-GL-01), Vitest (unit e integración), `.env.example`/`.gitignore` y un workflow de GitHub Actions (typecheck, lint, tests; todavía no verificado en un push). Falta: Next.js, Tailwind, Prettier, `/api/health`, Playwright, build en CI y cabeceras de seguridad.
 - **Scope**: Proyecto Next.js base con calidad automatizada desde el día uno
   - Next.js (App Router) + TypeScript `strict` + pnpm + Tailwind CSS; ESLint y Prettier
   - Estructura de `src/app`, `src/features`, `src/shared`, `db/`, `scripts/` y `tests/` según la KB
@@ -156,6 +157,7 @@ Paso │ Agente A (Backend Core)      │ Agente B (Backend Aux)        │ Agen
 
 ### [C-02] `database-foundation`
 - **Estado**: `[ ]` pendiente
+- **Avance parcial** (`turnos-sin-solapamiento`, 25/11/2026): Drizzle y drizzle-kit, migraciones `0000`–`0003` (`btree_gist`, `consultorio`, rol `app_user` sin `BYPASSRLS` y rol de migraciones separado, RLS forzado con `nullif(current_setting(...))`), `withTenant`, `pnpm db:migrate`/`db:seed` con el consultorio Demo y job de CI con PostgreSQL. Desvío: PostgreSQL local en Windows en lugar de Supabase CLI (design D8). Falta: `pgcrypto`, `registro_auditoria` y `features/auditoria`, lectura pública de consultorio por slug y `pnpm db:reset`.
 - **Scope**: Base de datos, multi-tenancy con RLS y auditoría
   - Supabase CLI para PostgreSQL local; Drizzle ORM y drizzle-kit configurados
   - Migración 0001: extensiones `btree_gist`, `pgcrypto`; rol `app_user` **sin** `BYPASSRLS`; rol de migraciones separado
@@ -240,6 +242,7 @@ Paso │ Agente A (Backend Core)      │ Agente B (Backend Aux)        │ Agen
 
 ### [C-06] `clinic-resources`
 - **Estado**: `[ ]` pendiente
+- **Avance parcial** (`turnos-sin-solapamiento`, 25/11/2026): las tablas `profesional`, `sillon`, `prestacion` y `prestacion_profesional` ya existen (migración `0001`, con RLS en `0003` y FK compuestas por consultorio), y el seed carga los recursos de la KB. Falta: páginas CRUD, permisos por rol y aviso IN-02.
 - **Scope**: Profesionales, sillones y prestaciones
   - Migración 0003: `profesional`, `sillon`, `prestacion` (duración 5–480, `requiere_sillon`, `reservable_online`), `prestacion_profesional`, todas con `tenant_id` + RLS
   - Páginas `/panel/configuracion/profesionales`, `/sillones` y `/prestaciones`, con CRUD solo para admin y lectura para el resto
@@ -279,6 +282,7 @@ Paso │ Agente A (Backend Core)      │ Agente B (Backend Aux)        │ Agen
 
 ### [C-08] `appointments-core`
 - **Estado**: `[ ]` pendiente
+- **Avance parcial** (`turnos-sin-solapamiento`, 25/11/2026; specs en `openspec/specs/turnos` y `openspec/specs/aislamiento-consultorios`): `paciente` y `turno` (migración `0001`), restricciones `EXCLUDE` (migración `0004`), `crearTurno` y `cancelarTurno` con mapeo de 23P01 y reintento ante deadlock, regla de 24 h y tests de concurrencia. Falta: `token_turno` y tokens SHA-256, `moverTurno`, validación de horarios y bloqueos (RN-AG-05/06, requiere C-07), estados `atendido`/`ausente` y normalización de DNI.
 - **Scope**: Pacientes y turnos con no solapamiento garantizado por la base de datos
   - Migración 0005: `paciente` (unique parcial `tenant_id`+`dni`, contador de ausencias, bloqueo, consentimiento, `anonimizado_en`), `turno` (`tstzrange`, estados, origen), `token_turno` (hash, vencimiento)
   - **Restricciones `EXCLUDE USING gist`** para profesional y para sillón sobre estados activos (RN-AG-01, RN-AG-02)
