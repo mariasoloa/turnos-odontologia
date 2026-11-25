@@ -33,6 +33,7 @@ Dos restricciones con nombre estable sobre `turno`:
 ### D2. Traducción del error 23P01 por nombre de restricción
 La capa `infrastructure` captura el SQLSTATE `23P01` y lee `constraint`: `turno_sin_solapamiento_profesional` se traduce a `ProfesionalOcupado` y `turno_sin_solapamiento_sillon` a `SillonOcupado`. Cualquier otro error se propaga sin traducir.
 **Alternativa**: consultar antes de insertar para saber qué recurso choca. Es más lento y sigue teniendo una ventana de carrera.
+**Hallazgo en apply (25/11/2026)**: con dos inserciones superpuestas simultáneas, PostgreSQL puede abortar una con `40P01` (deadlock) en lugar de `23P01`, porque cada transacción registra su entrada en el índice GiST y espera a la otra antes de verificar. La garantía "como máximo uno" se mantiene, pero el error no es el de la spec. La unidad de trabajo reintenta la transacción completa ante `40P01` o `40001` (hasta 3 intentos, con espera aleatoria corta); en el reintento la fila rival ya está confirmada y el choque llega como `23P01`. El test de concurrencia lo detectó (2 de 5 corridas fallaban) y con el reintento pasó 10 corridas seguidas. Cada inserción corre en un `SAVEPOINT` para que un rechazo no aborte la transacción externa.
 
 ### D3. Validaciones de dominio puras (RN-AG-03, RN-AG-04, RN-AG-07)
 `features/agenda/domain` recibe datos ya cargados (prestación, profesional, sillón, habilitación) y devuelve el turno a insertar o un error de dominio. No importa Drizzle ni el driver. RN-AG-03 se valida solo acá, porque depende de la tabla `prestacion`. Decisión del 24/11/2026.
@@ -62,17 +63,55 @@ Los tests de integración usan una base `turnos_test` que se recrea al iniciar l
 ### Estructura
 
 ```
-src/shared/db/         cliente (pg + drizzle), withTenant, esquema Drizzle
+src/shared/config.ts   carga de .env y URLs validadas con Zod
+src/shared/db/         cliente (pg + drizzle), withTenant, esquema Drizzle, errores de PostgreSQL
 src/shared/time/       zona horaria del consultorio <-> UTC
 src/features/agenda/
   domain/              turno.ts (validaciones, regla de 24 h), errores.ts
-  application/         crearTurno.ts, cancelarTurno.ts, puertos.ts
-  infrastructure/      repositorioTurnos.drizzle.ts (incluye la traducción de 23P01)
-db/migrations/0001_*   extensiones, roles, tablas, RLS, EXCLUDE
+  application/         crear-turno.ts, cancelar-turno.ts, puertos.ts
+  infrastructure/      repositorio-agenda.drizzle.ts (traducción de 23P01 y reintento de 40P01)
+db/migrations/         0000 extensiones, 0001 tablas, 0002 roles, 0003 RLS, 0004 EXCLUDE
+db/herramientas.ts     crear base, migrar y asegurar el rol de login de la app
 db/seed.ts             consultorio Demo con datos ficticios
 tests/unit/            dominio y tiempo
-tests/integration/     solapamiento, concurrencia, aislamiento
+tests/integration/     migraciones, RLS, aislamiento, exclusión, casos de uso, concurrencia
 ```
+
+### Notas de implementación (desvíos menores, 25/11/2026)
+- Las migraciones quedaron en cinco archivos (`0000` a `0004`) en lugar de una `0001`: drizzle-kit genera las tablas y el SQL a mano (extensión, roles, RLS, EXCLUDE) va en migraciones personalizadas separadas.
+- Roles: la migración `0002` crea el grupo `app_user` (NOLOGIN, sin `BYPASSRLS`, sin `DELETE`). `pnpm db:migrate` crea el rol de login de la app (usuario y clave tomados de `DATABASE_URL`) como miembro de `app_user`.
+- `consultorio` tiene RLS `id = app.tenant_id`: la app solo lee su propio consultorio. La lectura pública por slug que prevé la KB queda para el change de reserva online.
+- Errores agregados a D4: `EntradaInvalida` (Zod) y `RecursoInexistente` (consultorio, profesional, sillón o prestación que no existen en el consultorio).
+
+### Trazabilidad de escenarios (verificada el 25/11/2026)
+
+| Spec · escenario | Test |
+|------------------|------|
+| turnos · Turno creado | `tests/integration/agenda/crear-turno.test.ts` "crea un turno reservado…" |
+| turnos · Fin calculado | `crear-turno.test.ts` "calcula el fin…"; `tests/unit/agenda/turno.test.ts` |
+| turnos · Cambio posterior de duración | `tests/integration/agenda/duracion-fija.test.ts` |
+| turnos · Falta el sillón requerido | `crear-turno.test.ts` "rechaza la falta del sillón…"; unitario |
+| turnos · Consulta breve sin sillón | `crear-turno.test.ts` "crea sin sillón una consulta breve…" |
+| turnos · Sillón indicado en una prestación que no lo requiere | `crear-turno.test.ts` "un sillón indicado en una consulta breve queda ocupado"; unitario |
+| turnos · Prestación no habilitada | `crear-turno.test.ts`; unitario |
+| turnos · Profesional inactivo | `crear-turno.test.ts`; unitario (también sillón y prestación inactivos) |
+| turnos · Paciente inexistente | `crear-turno.test.ts` |
+| turnos · Superposición con el mismo profesional | `crear-turno.test.ts`; `tests/integration/db/exclusion.test.ts`; `tests/integration/agenda/repositorio.test.ts` |
+| turnos · Turnos contiguos | `crear-turno.test.ts`; `exclusion.test.ts` |
+| turnos · Otro profesional en el mismo horario | `crear-turno.test.ts` |
+| turnos · Superposición en el mismo sillón | `crear-turno.test.ts`; `exclusion.test.ts`; `repositorio.test.ts` |
+| turnos · Turnos sin sillón superpuestos | `crear-turno.test.ts`; `exclusion.test.ts` |
+| turnos · Dos creaciones simultáneas | `tests/integration/agenda/concurrencia.test.ts` (20 repeticiones por recurso y bloqueo determinístico) |
+| turnos · Cancelación con anticipación / tardía / exactamente 24 horas | `tests/integration/agenda/cancelar-turno.test.ts`; unitario |
+| turnos · Turno ya comenzado o no reservado | `cancelar-turno.test.ts` (dos tests); unitario |
+| turnos · Reutilizar el horario | `cancelar-turno.test.ts` "libera el profesional y el sillón…"; `exclusion.test.ts` "ignoran los turnos cancelados" |
+| turnos · Hora local | `crear-turno.test.ts` (10:00 local = 13:00 UTC); `tests/unit/shared/time.test.ts` |
+| aislamiento · Operación con consultorio | `crear-turno.test.ts` "crea un turno reservado…" (verifica `tenant_id`) |
+| aislamiento · Lectura de otro consultorio | `tests/integration/aislamiento-consultorios.test.ts`; `tests/integration/db/rls.test.ts` |
+| aislamiento · Modificación de otro consultorio | `aislamiento-consultorios.test.ts`; `cancelar-turno.test.ts` "no encuentra un turno de otro consultorio…" |
+| aislamiento · Recurso de otro consultorio | `aislamiento-consultorios.test.ts` (FK compuesta, 23503); `crear-turno.test.ts` (`RecursoInexistente`) |
+| aislamiento · Consulta sin consultorio | `aislamiento-consultorios.test.ts`; `rls.test.ts` |
+| aislamiento · Mismo horario en dos consultorios | `crear-turno.test.ts` "acepta el mismo horario… en dos consultorios" |
 
 ## Risks / Trade-offs
 
@@ -88,4 +127,4 @@ tests/integration/     solapamiento, concurrencia, aislamiento
 
 ## Migration Plan
 
-Es la primera migración (`0001`); no hay datos previos. El rollback se hace recreando la base local. No se despliega a producción en este change.
+Son las primeras migraciones (`0000` a `0004`); no hay datos previos. El rollback se hace recreando la base local. No se despliega a producción en este change.

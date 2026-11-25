@@ -1,1 +1,9 @@
 .active-orchestrator-state.json.bak
+
+# Dependencias
+node_modules/
+
+# Variables de entorno: nunca se commitean (solo .env.example)
+.env
+.env.*
+!.env.example

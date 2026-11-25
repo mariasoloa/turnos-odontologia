@@ -1,0 +1,989 @@
+{
+  "id": "c4c3b228-b8d1-4029-a870-b162aeef6b7a",
+  "prevId": "35b1dd6a-8e0c-47b8-8513-2391d21ad7ae",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.consultorio": {
+      "name": "consultorio",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "direccion": {
+          "name": "direccion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "telefono": {
+          "name": "telefono",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email_contacto": {
+          "name": "email_contacto",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "estado": {
+          "name": "estado",
+          "type": "estado_consultorio",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'activo'"
+        },
+        "max_ausencias_bloqueo": {
+          "name": "max_ausencias_bloqueo",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 3
+        },
+        "granularidad_minutos": {
+          "name": "granularidad_minutos",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 15
+        },
+        "anticipacion_minima_horas": {
+          "name": "anticipacion_minima_horas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 2
+        },
+        "horizonte_reserva_dias": {
+          "name": "horizonte_reserva_dias",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 60
+        },
+        "zona_horaria": {
+          "name": "zona_horaria",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'America/Argentina/Buenos_Aires'"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "consultorio_slug_unique": {
+          "name": "consultorio_slug_unique",
+          "columns": [
+            "slug"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.paciente": {
+      "name": "paciente",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "tenant_id": {
+          "name": "tenant_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "apellido": {
+          "name": "apellido",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dni": {
+          "name": "dni",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "telefono": {
+          "name": "telefono",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "obra_social": {
+          "name": "obra_social",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nro_afiliado": {
+          "name": "nro_afiliado",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notas_administrativas": {
+          "name": "notas_administrativas",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ausencias_sin_aviso": {
+          "name": "ausencias_sin_aviso",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "bloqueado_online": {
+          "name": "bloqueado_online",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "bloqueado_en": {
+          "name": "bloqueado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "consentimiento_aceptado_en": {
+          "name": "consentimiento_aceptado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "consentimiento_version": {
+          "name": "consentimiento_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "anonimizado_en": {
+          "name": "anonimizado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "paciente_tenant_dni_unico": {
+          "name": "paciente_tenant_dni_unico",
+          "columns": [
+            {
+              "expression": "tenant_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "dni",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "with": {},
+          "method": "btree",
+          "where": "\"paciente\".\"dni\" is not null",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "paciente_tenant_id_consultorio_id_fk": {
+          "name": "paciente_tenant_id_consultorio_id_fk",
+          "tableFrom": "paciente",
+          "columnsFrom": [
+            "tenant_id"
+          ],
+          "tableTo": "consultorio",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "paciente_tenant_id_id_unico": {
+          "name": "paciente_tenant_id_id_unico",
+          "columns": [
+            "tenant_id",
+            "id"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "paciente_dni_solo_digitos": {
+          "name": "paciente_dni_solo_digitos",
+          "value": "\"paciente\".\"dni\" is null or \"paciente\".\"dni\" ~ '^[0-9]+$'"
+        },
+        "paciente_notas_largo": {
+          "name": "paciente_notas_largo",
+          "value": "char_length(\"paciente\".\"notas_administrativas\") <= 500"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.prestacion": {
+      "name": "prestacion",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "tenant_id": {
+          "name": "tenant_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "duracion_minutos": {
+          "name": "duracion_minutos",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "requiere_sillon": {
+          "name": "requiere_sillon",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "reservable_online": {
+          "name": "reservable_online",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "activa": {
+          "name": "activa",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "prestacion_tenant_id_consultorio_id_fk": {
+          "name": "prestacion_tenant_id_consultorio_id_fk",
+          "tableFrom": "prestacion",
+          "columnsFrom": [
+            "tenant_id"
+          ],
+          "tableTo": "consultorio",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "prestacion_tenant_id_id_unico": {
+          "name": "prestacion_tenant_id_id_unico",
+          "columns": [
+            "tenant_id",
+            "id"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "prestacion_duracion_valida": {
+          "name": "prestacion_duracion_valida",
+          "value": "\"prestacion\".\"duracion_minutos\" between 5 and 480"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.prestacion_profesional": {
+      "name": "prestacion_profesional",
+      "schema": "",
+      "columns": {
+        "tenant_id": {
+          "name": "tenant_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "prestacion_id": {
+          "name": "prestacion_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "profesional_id": {
+          "name": "profesional_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "prestacion_profesional_tenant_id_consultorio_id_fk": {
+          "name": "prestacion_profesional_tenant_id_consultorio_id_fk",
+          "tableFrom": "prestacion_profesional",
+          "columnsFrom": [
+            "tenant_id"
+          ],
+          "tableTo": "consultorio",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "prestacion_profesional_prestacion_fk": {
+          "name": "prestacion_profesional_prestacion_fk",
+          "tableFrom": "prestacion_profesional",
+          "columnsFrom": [
+            "tenant_id",
+            "prestacion_id"
+          ],
+          "tableTo": "prestacion",
+          "columnsTo": [
+            "tenant_id",
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "prestacion_profesional_profesional_fk": {
+          "name": "prestacion_profesional_profesional_fk",
+          "tableFrom": "prestacion_profesional",
+          "columnsFrom": [
+            "tenant_id",
+            "profesional_id"
+          ],
+          "tableTo": "profesional",
+          "columnsTo": [
+            "tenant_id",
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "prestacion_profesional_pk": {
+          "name": "prestacion_profesional_pk",
+          "columns": [
+            "prestacion_id",
+            "profesional_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.profesional": {
+      "name": "profesional",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "tenant_id": {
+          "name": "tenant_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "especialidad": {
+          "name": "especialidad",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "activo": {
+          "name": "activo",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "visible_online": {
+          "name": "visible_online",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "orden": {
+          "name": "orden",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "profesional_tenant_id_consultorio_id_fk": {
+          "name": "profesional_tenant_id_consultorio_id_fk",
+          "tableFrom": "profesional",
+          "columnsFrom": [
+            "tenant_id"
+          ],
+          "tableTo": "consultorio",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "profesional_tenant_id_id_unico": {
+          "name": "profesional_tenant_id_id_unico",
+          "columns": [
+            "tenant_id",
+            "id"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.sillon": {
+      "name": "sillon",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "tenant_id": {
+          "name": "tenant_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "activo": {
+          "name": "activo",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "sillon_tenant_id_consultorio_id_fk": {
+          "name": "sillon_tenant_id_consultorio_id_fk",
+          "tableFrom": "sillon",
+          "columnsFrom": [
+            "tenant_id"
+          ],
+          "tableTo": "consultorio",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "sillon_tenant_id_id_unico": {
+          "name": "sillon_tenant_id_id_unico",
+          "columns": [
+            "tenant_id",
+            "id"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.turno": {
+      "name": "turno",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "tenant_id": {
+          "name": "tenant_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "paciente_id": {
+          "name": "paciente_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "profesional_id": {
+          "name": "profesional_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sillon_id": {
+          "name": "sillon_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "prestacion_id": {
+          "name": "prestacion_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rango": {
+          "name": "rango",
+          "type": "tstzrange",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "estado": {
+          "name": "estado",
+          "type": "estado_turno",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'reservado'"
+        },
+        "origen": {
+          "name": "origen",
+          "type": "origen_turno",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cancelado_en": {
+          "name": "cancelado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cancelado_por": {
+          "name": "cancelado_por",
+          "type": "cancelado_por",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "motivo_cancelacion": {
+          "name": "motivo_cancelacion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email_contacto": {
+          "name": "email_contacto",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "requiere_verificacion": {
+          "name": "requiere_verificacion",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "turno_tenant_profesional_rango_idx": {
+          "name": "turno_tenant_profesional_rango_idx",
+          "columns": [
+            {
+              "expression": "tenant_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "profesional_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "rango",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "turno_tenant_paciente_idx": {
+          "name": "turno_tenant_paciente_idx",
+          "columns": [
+            {
+              "expression": "tenant_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "paciente_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "turno_tenant_estado_rango_idx": {
+          "name": "turno_tenant_estado_rango_idx",
+          "columns": [
+            {
+              "expression": "tenant_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "estado",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "rango",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "turno_tenant_id_consultorio_id_fk": {
+          "name": "turno_tenant_id_consultorio_id_fk",
+          "tableFrom": "turno",
+          "columnsFrom": [
+            "tenant_id"
+          ],
+          "tableTo": "consultorio",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "turno_paciente_fk": {
+          "name": "turno_paciente_fk",
+          "tableFrom": "turno",
+          "columnsFrom": [
+            "tenant_id",
+            "paciente_id"
+          ],
+          "tableTo": "paciente",
+          "columnsTo": [
+            "tenant_id",
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "turno_profesional_fk": {
+          "name": "turno_profesional_fk",
+          "tableFrom": "turno",
+          "columnsFrom": [
+            "tenant_id",
+            "profesional_id"
+          ],
+          "tableTo": "profesional",
+          "columnsTo": [
+            "tenant_id",
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "turno_sillon_fk": {
+          "name": "turno_sillon_fk",
+          "tableFrom": "turno",
+          "columnsFrom": [
+            "tenant_id",
+            "sillon_id"
+          ],
+          "tableTo": "sillon",
+          "columnsTo": [
+            "tenant_id",
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "turno_prestacion_fk": {
+          "name": "turno_prestacion_fk",
+          "tableFrom": "turno",
+          "columnsFrom": [
+            "tenant_id",
+            "prestacion_id"
+          ],
+          "tableTo": "prestacion",
+          "columnsTo": [
+            "tenant_id",
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "turno_rango_valido": {
+          "name": "turno_rango_valido",
+          "value": "not isempty(\"turno\".\"rango\") and lower_inc(\"turno\".\"rango\") and not upper_inc(\"turno\".\"rango\") and not lower_inf(\"turno\".\"rango\") and not upper_inf(\"turno\".\"rango\")"
+        },
+        "turno_cancelacion_coherente": {
+          "name": "turno_cancelacion_coherente",
+          "value": "(\"turno\".\"estado\" in ('cancelado', 'cancelado_tarde')) = (\"turno\".\"cancelado_en\" is not null and \"turno\".\"cancelado_por\" is not null)"
+        }
+      },
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "public.cancelado_por": {
+      "name": "cancelado_por",
+      "schema": "public",
+      "values": [
+        "paciente",
+        "personal"
+      ]
+    },
+    "public.estado_consultorio": {
+      "name": "estado_consultorio",
+      "schema": "public",
+      "values": [
+        "activo",
+        "suspendido"
+      ]
+    },
+    "public.estado_turno": {
+      "name": "estado_turno",
+      "schema": "public",
+      "values": [
+        "reservado",
+        "atendido",
+        "ausente",
+        "cancelado",
+        "cancelado_tarde"
+      ]
+    },
+    "public.origen_turno": {
+      "name": "origen_turno",
+      "schema": "public",
+      "values": [
+        "online",
+        "personal"
+      ]
+    }
+  },
+  "schemas": {},
+  "views": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
