@@ -39,6 +39,7 @@ Existen SaaS odontológicos en el mercado argentino que el equipo considera comp
 
 ## 6. Funcionalidades opcionales (etapas posteriores)
 
+- **Primera prioridad posterior al MVP: recordatorios y confirmación por WhatsApp (API oficial).** Decisión del 2026-11-24, tomada a partir del informe de mercado: es el canal estándar en Argentina. El MVP debe diseñar las notificaciones con canales intercambiables para que WhatsApp se agregue sin rediseño.
 - Recordatorios con confirmación o cancelación por parte del paciente.
 - Lista de espera para cubrir huecos por cancelaciones.
 - Historia clínica y odontograma, como módulo opcional.
@@ -55,8 +56,9 @@ Existen SaaS odontológicos en el mercado argentino que el equipo considera comp
 
 ## 8. Integraciones
 
-- **MVP**: solo email (confirmación, cancelación y recordatorio).
-- **Posteriores**: WhatsApp Business API, Mercado Pago, Google Calendar, obras sociales y prepagas.
+- **MVP**: solo email (confirmación, cancelación y recordatorio), detrás de una capa de notificaciones con canales intercambiables.
+- **Etapa siguiente al MVP**: WhatsApp Business API (primera prioridad).
+- **Posteriores**: Mercado Pago, Google Calendar, obras sociales y prepagas.
 
 ## 9. Restricciones
 

@@ -1,6 +1,6 @@
 {
   "version": 5,
-  "step": "kb",
+  "step": "roadmap",
   "owner": "active-orchestrator",
   "discovery": {
     "created_by": "discovery-research",
@@ -55,7 +55,8 @@
       "Paciente identificado por DNI dentro de cada consultorio; pacientes separados por consultorio",
       "Suscripción mensual por consultorio; gratis para el paciente"
     ],
-    "integraciones": ["Email (MVP)", "WhatsApp Business API (posterior)", "Mercado Pago (posterior)", "Google Calendar (posterior)", "Obras sociales/prepagas (posterior)"],
+    "decisions": [{"date": "2026-11-24", "decision": "WhatsApp Business API es la primera prioridad posterior al MVP; el MVP diseña notificaciones con canales intercambiables", "source": "docs/discovery/informe-discovery.md"}],
+    "integraciones": ["Email (MVP)", "WhatsApp Business API (etapa siguiente al MVP, primera prioridad)", "Mercado Pago (posterior)", "Google Calendar (posterior)", "Obras sociales/prepagas (posterior)"],
     "restricciones": [
       "Varias semanas, sin consultorio piloto todavía",
       "Stack a definir en la KB: simple y fácil de testear automáticamente",
@@ -80,15 +81,42 @@
       "Link de cancelación sin identificarse mediante token de un solo uso"
     ]
   },
+  "kb": {
+    "created_by": "kb-creator",
+    "source": "interactive",
+    "discovery": {
+      "problem": "Los consultorios odontológicos argentinos pierden tiempo coordinando turnos por WhatsApp/teléfono, les cuesta organizar la agenda de profesionales y sillones sin solapamientos y sufren ausencias sin aviso.",
+      "system_type": "saas_multi_tenant",
+      "domain": "salud / gestión de turnos odontológicos",
+      "scale": "multi_tenant",
+      "stack": "Next.js (App Router) + TypeScript + Drizzle ORM + PostgreSQL (Supabase, pg_cron) + Better Auth + Resend + Vercel; Vitest + Playwright",
+      "needs_infra": true
+    },
+    "files": [
+      "knowledge-base/README.md",
+      "knowledge-base/01_vision_y_objetivos.md",
+      "knowledge-base/02_descripcion_general.md",
+      "knowledge-base/03_actores_y_roles.md",
+      "knowledge-base/04_modelo_de_datos.md",
+      "knowledge-base/05_reglas_de_negocio.md",
+      "knowledge-base/06_funcionalidades.md",
+      "knowledge-base/07_flujos_principales.md",
+      "knowledge-base/08_arquitectura_propuesta.md",
+      "knowledge-base/09_decisiones_y_supuestos.md",
+      "knowledge-base/10_preguntas_abiertas.md",
+      "knowledge-base/11_notificaciones.md",
+      "knowledge-base/12_privacidad_y_cumplimiento.md"
+    ]
+  },
   "foundation": {
     "version": 1,
     "approved_on": "2026-11-24",
     "route": "foundation",
-    "order": ["discovery", "kb", "visual-design", "roadmap", "task-management", "team-mode", "memory-policy", "find-skill", "registry", "agents"],
+    "order": ["discovery", "kb", "roadmap", "task-management", "team-mode", "memory-policy", "find-skill", "registry", "agents"],
     "phases": {
       "discovery": {"variant": "interview", "status": "done", "requires": [], "outputs": ["docs/discovery/discovery.md"], "completed_on": "2026-11-24", "note": "Ruta movida de discovery/ a docs/discovery/ a pedido del usuario."},
-      "kb": {"variant": "interview", "status": "pending", "requires": ["discovery"], "outputs": ["knowledge-base/"]},
-      "visual-design": {"variant": "system-and-mockups", "status": "pending", "requires": ["kb"], "outputs": ["design-system/"]},
+      "kb": {"variant": "interview", "status": "done", "requires": ["discovery"], "outputs": ["knowledge-base/"], "completed_on": "2026-11-24", "approved_by": "user"},
+      "visual-design": {"variant": "system-and-mockups", "status": "skipped", "requires": ["kb"], "outputs": [], "decided_on": "2026-11-24", "reason": "Salteada a pedido del usuario: no hace falta diseño de interfaz gráfica en este TP."},
       "roadmap": {"variant": "local-markdown", "status": "pending", "requires": ["kb"], "outputs": ["CHANGES.md"]},
       "task-management": {"variant": "local", "status": "pending", "requires": ["roadmap"], "outputs": [".active-stack/roadmap.json"]},
       "team-mode": {"variant": "new", "status": "pending", "requires": ["roadmap", "task-management"], "outputs": [".active-stack/team.json", ".github/pull_request_template.md", ".github/CODEOWNERS"]},
