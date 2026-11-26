@@ -135,7 +135,7 @@ Paso │ Agente A (Backend Core)      │ Agente B (Backend Aux)        │ Agen
 
 ### [C-01] `project-scaffolding`
 - **Estado**: `[ ]` pendiente
-- **Avance parcial** (change OpenSpec `turnos-sin-solapamiento`, archivado el 25/11/2026, commit `a0235e2`): ya existen TypeScript `strict` + pnpm + ESLint, `src/shared/time/` con tests (RN-GL-01), Vitest (unit e integración), `.env.example`/`.gitignore` y un workflow de GitHub Actions (typecheck, lint, tests; todavía no verificado en un push). Falta: Next.js, Tailwind, Prettier, `/api/health`, Playwright, build en CI y cabeceras de seguridad.
+- **Avance parcial** (change OpenSpec `turnos-sin-solapamiento`, archivado el 25/11/2026, commit `a0235e2`): ya existen TypeScript `strict` + pnpm + ESLint, `src/shared/time/` con tests (RN-GL-01), Vitest (unit e integración), `.env.example`/`.gitignore` y un workflow de GitHub Actions (typecheck, lint, tests; verificado en la corrida #1 del 25/11/2026, commit `0ac76f1`). Falta: Next.js, Tailwind, Prettier, `/api/health`, Playwright, build en CI y cabeceras de seguridad.
 - **Scope**: Proyecto Next.js base con calidad automatizada desde el día uno
   - Next.js (App Router) + TypeScript `strict` + pnpm + Tailwind CSS; ESLint y Prettier
   - Estructura de `src/app`, `src/features`, `src/shared`, `db/`, `scripts/` y `tests/` según la KB

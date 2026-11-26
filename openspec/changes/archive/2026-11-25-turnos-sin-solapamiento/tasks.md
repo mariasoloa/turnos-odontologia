@@ -37,7 +37,8 @@
 ## 6. Seed, CI e integración final
 
 - [x] 6.1 Implementar `db/seed.ts` con el consultorio Demo ficticio de la KB (profesionales, sillones, prestaciones y pacientes ficticios); verificar que `pnpm db:seed` corre dos veces sin error
-- [ ] 6.2 Agregar el workflow de GitHub Actions con el servicio `postgres:16`: instalar con pnpm, `typecheck`, `lint`, `test:unit`, migraciones y `test:integration`; verificar que el workflow pasa en un push de la rama
+- [x] 6.2 Agregar el workflow de GitHub Actions con el servicio `postgres:16`: instalar con pnpm, `typecheck`, `lint`, `test:unit`, migraciones y `test:integration`; verificar que el workflow pasa en un push de la rama
+  - Evidencia (25/11/2026): corrida #1 de CI (ID `45549898927`) en el push a `master` del commit `0ac76f1`; todos los pasos en verde. https://github.com/mariasoloa/turnos-odontologia/actions/runs/45549898927
 - [x] 6.3 Documentar en un `README.md` los prerrequisitos (PostgreSQL y pnpm), las variables de entorno y cómo correr migraciones, seed y tests; verificar siguiendo los pasos desde una base vacía
 - [x] 6.4 Verificación final: `pnpm typecheck`, `pnpm lint`, `pnpm test:unit` y `pnpm test:integration` en verde, y cada escenario de las dos specs trazado a un test
 
