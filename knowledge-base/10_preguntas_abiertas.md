@@ -38,4 +38,4 @@
 | PA-12 | Baja | ¿Precio, planes y prueba gratuita de la suscripción? Referencia de mercado: ARS 15.000–80.000 por mes. | Etapa de cobro | Producto |
 | PA-13 | Baja | ¿Qué proveedor de WhatsApp usamos: Cloud API de Meta directa o un proveedor intermediario? ¿Cuál es el costo por conversación de utilidad en Argentina? | Etapa WhatsApp | Equipo |
 | PA-14 | Baja | ¿Se usan las verificaciones de cumplimiento visible (política pública, página de seguridad) como argumento comercial desde el lanzamiento? | Landing | Producto |
-| PA-15 | Baja | Verificar manualmente las 5 fuentes marcadas en `docs/discovery/informe-discovery.md`. | Confianza del informe | Equipo |
+| PA-15 | Resuelta | ~~Verificar manualmente las 5 fuentes marcadas en `docs/discovery/informe-discovery.md`.~~ Resuelta el 25/11/2026: ver la sección "Verificación de fuentes" del informe v1.2. | — | Equipo |

@@ -1,5 +1,10 @@
 # Proposal
 
+## Elección del change
+
+Se eligió porque es el **primer imprescindible del MVP** recomendado en la sección D.3 del informe de Discovery ("agenda por profesional y por sillón/box con prevención de solapamientos en ambos recursos") y el **diferenciador "cero solapamientos"**, que casi ningún competidor evidencia según el relevamiento (sección C.3, punto 1).
+Además, tiene reglas verificables (RN-AG-01 a 04, RN-AG-07, RN-AG-08 y RN-CA-02) y es una sola funcionalidad que se puede terminar en un ciclo. Se incluye la cancelación porque comparte el modelo y permite probar que liberar el horario funciona. Reprogramar queda afuera porque necesita horarios y bloqueos (C-07). El relevamiento previo está en `explore.md`.
+
 ## Why
 
 La promesa central del producto es que un profesional o un sillón/box nunca tengan dos turnos superpuestos, incluso con reservas simultáneas.

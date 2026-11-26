@@ -7,20 +7,30 @@
 | Campo | Valor |
 |---|---|
 | **Título** | Investigación de mercado: sistemas odontológicos de gestión de turnos y agenda (Argentina, Latinoamérica e internacional) |
+| **Materia** | Metodología I — Tecnicatura Universitaria en Programación |
+| **Trabajo** | Trabajo de Integración: del Discovery al primer Change, con Spec-Driven Development y Active Stack |
+| **Integrantes** | Laciar Yanela · Llerena Romina · Soloa María de los Ángeles · Urbani Constanza |
 | **Proyecto** | turnos-odontologia |
-| **Fecha de consulta de fuentes** | 24/11/2026 |
-| **Versión** | 1.0 (borrador para revisión) |
-| **Elaborado por** | _(completar)_ |
-| **Revisado por** | _(completar tras la verificación manual de fuentes)_ |
+| **Fecha del informe** | 25/11/2026 |
+| **Fecha de consulta de fuentes** | 24/11/2026 (relevamiento) y 25/11/2026 (verificación manual de cinco fuentes) |
+| **Versión** | 1.2 |
+| **Elaborado por** | Integrantes del grupo, con asistencia de un agente de IA (Active Stack, skill `discovery-research`) |
+| **Revisado por** | Llerena Romina |
 | **Documento relacionado** | `docs/discovery/discovery.md` |
+
+**Historial de versiones**
+
+| Versión | Fecha | Cambio |
+|---|---|---|
+| 1.0 | 24/11/2026 | Informe generado por el agente a partir de los sitios oficiales. |
+| 1.1 | 25/11/2026 | Verificación manual de cinco fuentes. Se cambiaron por error los planes y precios de Dentia (se registraron los de Dentalink). |
+| 1.2 | 25/11/2026 | Se revisó otra vez dentia.tech y se restauraron sus planes y precios; se incorporó el plan gratuito de Bilog; se agregó la fuente y la fecha a cada fila de la tabla A; "NE" pasó a "No evidenciado" y se alinearon los criterios con la distinción entre funcionalidad comprobada y afirmación comercial. |
 
 ---
 
 ## Resumen ejecutivo
 
-> _Borrador. Puede reemplazarse o ajustarse luego de la revisión manual._
-
-Se relevaron **19 sistemas**: 13 con oferta explícita para Argentina, 3 latinoamericanos sin presencia argentina evidenciada y 3 internacionales de referencia. La evidencia proviene exclusivamente de sitios oficiales consultados el 24/11/2026. Ningún sistema fue probado mediante demo, por lo que **todas las funcionalidades consignadas son declaraciones del proveedor**: se distingue entre declaraciones con detalle funcional y afirmaciones comerciales sin sustento (marcadas como _[afirmación comercial]_).
+Se relevaron **19 sistemas**: 13 con oferta explícita para Argentina, 3 latinoamericanos sin presencia argentina evidenciada y 3 internacionales de referencia. La evidencia proviene exclusivamente de sitios oficiales consultados el 24/11/2026; cinco de ellos se verificaron manualmente el 25/11/2026. Ningún sistema se probó mediante demo. Se distingue entre **funcionalidad comprobada** (la muestra el producto o su documentación oficial con detalle concreto) y **afirmación comercial** (lo dice el proveedor sin demostrarlo, marcada como _[afirmación comercial]_).
 
 Hallazgos principales:
 
@@ -37,14 +47,14 @@ Hallazgos principales:
 ## Metodología y alcance
 
 - **Búsqueda:** búsquedas web abiertas (Argentina, Latinoamérica e internacional) para identificar candidatos, seguidas de lectura directa de los sitios oficiales de cada proveedor (inicio, funcionalidades, precios, preguntas frecuentes, políticas de privacidad y seguridad cuando estaban disponibles). Los blogs comparativos de terceros se usaron **solo para identificar candidatos**, nunca como evidencia de funcionalidades.
-- **Fecha de consulta:** 24/11/2026 para todas las fuentes.
+- **Fecha de consulta:** 24/11/2026 para todas las fuentes. Cinco de ellas se volvieron a abrir el 25/11/2026 en la verificación manual (ver "Verificación de fuentes"). La tabla A.1 indica la fuente principal y la fecha de cada sistema.
 - **Criterio de evidencia:**
-  - **✔ Declarado:** el sitio oficial describe la funcionalidad con detalle concreto. Sigue siendo una declaración del proveedor, no una comprobación por uso.
+  - **✔ Comprobada:** el producto, su documentación oficial (sitio, precios, centro de ayuda) o un video oficial la muestran con detalle concreto. Es una comprobación documental, no de uso: ningún sistema se probó.
   - **◐ Parcial o condicionado:** la funcionalidad aparece de forma incompleta, solo en un plan superior, como adicional pago, de forma manual o con información contradictoria.
-  - **NE — No evidenciado:** no aparece en las páginas leídas. **No implica que el producto carezca de la funcionalidad.**
+  - **No evidenciado:** no aparece en las páginas leídas. **No implica que el producto carezca de la funcionalidad.**
   - **✘ Excluido:** el proveedor declara expresamente que no la ofrece.
   - **N/A:** no aplica al mercado argentino (por ejemplo, facturación SAT de México).
-  - _[afirmación comercial]_: eslogan o cifra sin detalle verificable.
+  - _[afirmación comercial]_: el proveedor lo afirma sin demostrarlo (eslogan o cifra sin detalle verificable). No cuenta como funcionalidad comprobada.
 - **Limitaciones:**
   - No se realizaron demos ni pruebas de uso.
   - Las cifras de adopción son autodeclaradas.
@@ -60,99 +70,99 @@ Ordenados por relevancia para el mercado argentino: oferta local explícita, esp
 
 ### A.1 Identificación y modelo comercial
 
-| # | Sistema | Proveedor | Origen | Segmento | Modalidad | Precios publicados | Prueba / plan gratuito | Adopción declarada |
-|---|---|---|---|---|---|---|---|---|
-| 1 | **Dentalink** | Engenis SpA | Chile (con sitio para Argentina) | Consultorios y clínicas; multicentro | Nube; acceso web y móvil | NE (solo cotización). Adicional Contact Center IA: USD 50/mes, promoción para un profesional | NE | +15.000 clientes, +20 países _[afirmación comercial]_ |
-| 2 | **Bilog** | Bilog | Argentina | Consultorios, clínicas, auditoría de obras sociales, facultades | Web, escritorio y app iOS/Android | NE. Abono mensual sin permanencia; configuración inicial sin costo | NE (demo) | +1.500 clínicas y consultorios; +5.000 usuarios |
-| 3 | **DentalSoft** | DentalSoft | Argentina (La Plata y Rosario) | Profesional individual, consultorios y clínicas | Nube | Gratis (50 turnos/mes por 3 meses); Gestión $30.000/mes; Pro $60.000/mes (por profesional, moneda indicada solo con "$") | ✔ plan gratuito y demo sin tarjeta | NE. Reseñas de Google 5,0 (11), según el propio sitio |
-| 4 | **Dentia** | Dentia | Argentina | Consultorios y clínicas; multisucursal | Web, instalable como app | Básico ARS 20.000/mes; Pro ARS 30.000/mes; Elite ARS 40.000/mes | ✔ prueba de 30 días | +100 clínicas _[afirmación comercial]_ |
-| 5 | **Oclusar** | NE | Argentina | Consultorio individual y clínica | Web, enfoque móvil | NE ("en pesos") | ✔ "empezás gratis, sin tarjeta" (límites NE) | NE |
-| 6 | **ZYRA** | ZYRA Clinical Management | Argentina | Consultorios y clínicas | Nube (SaaS) | Starter ARS 15.000/mes (50 pacientes); Profesional ARS 29.000/mes; Premium ARS 39.000/mes | ✔ prueba de 30 días | +15 clínicas activas; +2.000 turnos |
-| 7 | **DentalTec** | Tándem Digital | Argentina (San Juan) | Odontólogos, clínicas, círculos y federaciones, obras sociales | Web | Software: "costo por odontólogo" (valor NE). Packs de WhatsApp: USD 9 (50 mensajes), USD 25 (150), USD 48 (300) | ◐ "demo gratuita" (condiciones NE) | 2.000+ profesionales; 30+ instituciones |
-| 8 | **Odonto.ar** | Odonto.ar | Argentina (Córdoba) | Individual, consultorio, clínica de hasta 10 usuarios | Web (infraestructura Supabase) | Individual USD 29/mes; Profesional USD 49/mes; Clínica USD 99/mes (pago en ARS) | ✔ prueba de 30 días sin tarjeta | NE |
-| 9 | **VecDent** | Vectora | NE (dominio .ar, precios en ARS) | Independientes a redes de consultorios | Web | Básico ARS 30.000/mes; Profesional ARS 50.000/mes; Premium ARS 80.000/mes | ◐ demo en vivo con datos de ejemplo | NE |
-| 10 | **Atiendo** | NE | Argentina | Consultorios chicos y medianos, multiespecialidad | Web | Por profesional, en ARS (valor no legible); usuarios de secretaría sin costo | ✔ prueba de 30 días sin tarjeta | NE |
-| 11 | **Agenda Profesional** | NE | Argentina | Profesionales de la salud y consultorios | Web | NE. Comisión posible sobre señas con Mercado Pago | NE (alta no pública) | NE |
-| 12 | **Doctoralia Pro (Argentina)** | Doctoralia Internet S.L. (grupo con presencia en 13 países) | Internacional, con oferta para Argentina | Especialistas de la salud con consulta privada | Nube y app | Starter ARS 25.000/mes; Plus ARS 35.000/mes; VIP ARS 55.000/mes (facturación anual); sitio web profesional +ARS 4.000/mes | ◐ "versión gratuita" sin detalle | Calificación 4,8 en Capterra/GetApp, según el propio sitio |
-| 13 | **Reservo** | NE | NE (dominio .cl, sitio para Argentina) | Consultorios médicos (no específico odontológico en lo leído) | NE | NE | ◐ "asesoría gratis" | +4.000 clientes en 15 países _[afirmación comercial]_ |
-| 14 | **OdontoGRAMA** | Solsoftware (Julio Santolo) | NE (dominio .com.ar) | Consultorio | Nube _[afirmación comercial]_ | NE | ◐ "acceda a todas las funciones gratis" (condiciones NE) | NE |
-| 15 | **Doctocliq** | Doctocliq | NE (opera en Latinoamérica; Argentina NE) | Independientes y clínicas dentales, estéticas y médicas | Nube y apps iOS/Android | Gratis USD 0; Individual USD 19/mes; Básico USD 29/mes; Avanzado USD 49/mes | ✔ plan gratuito; prueba de 7 días | +6.500 profesionales |
-| 16 | **MR Dental Cloud** | MR Desarrollos Inteligentes | México | Dentistas, clínicas y grupos | Nube, app instalable, modo sin conexión | Básico MXN 750/mes; Premium MXN 950/mes | ◐ prueba de 30 o 7 días (inconsistente) | +100 clínicas _[afirmación comercial]_ |
-| 17 | **Clinicorp** | Clinicorp | Brasil | Consultorios, clínicas, franquicias | Web y apps | Standard BRL 159,90/mes; Premium BRL 369,90/mes; Combo IA BRL 468,90/mes; implementación BRL 149,90–299 | NE (demo) | +32.000 clínicas en Brasil _[afirmación comercial]_ |
-| 18 | **Clinic Cloud** | Doctoralia España SL | España | Consultorios, clínicas, franquicias | Nube | Mini EUR 29/mes; Pro EUR 49/mes; Max EUR 79/mes (más IVA) | ✔ prueba sin tarjeta | +12.000 doctores |
-| 19 | **Dentally** | Henry Schein One UK Ltd | Reino Unido | Odontología: independientes a grupos multisede | Nube | Desde GBP 134/mes (Starter) hasta GBP 1.021/mes (Pro), según sillones, sin IVA | NE | NE (casos con nombre) |
+| # | Sistema | Proveedor | Origen | Segmento | Modalidad | Precios publicados | Prueba / plan gratuito | Adopción declarada | Fuente oficial y fecha de consulta |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | **Dentalink** | Engenis SpA | Chile (con sitio para Argentina) | Consultorios y clínicas; multicentro | Nube; acceso web y móvil | No publicados: planes Esencial, Pro y Titanium con cotización (verificado el 25/11/2026). Adicional Contact Center IA: USD 50/mes, promoción para un profesional | No evidenciado | +15.000 clientes, +20 países _[afirmación comercial]_ | https://www.softwaredentalink.com/ar/planes · 25/11/2026 |
+| 2 | **Bilog** | Bilog | Argentina | Consultorios, clínicas, auditoría de obras sociales, facultades | Web, escritorio y app iOS/Android | No evidenciado. Abono mensual sin permanencia; configuración inicial sin costo | ✔ plan gratuito (verificado el 25/11/2026; límites No evidenciado) | +1.500 clínicas y consultorios; +5.000 usuarios _[afirmación comercial]_ | https://bilog.com.ar/ · 25/11/2026 |
+| 3 | **DentalSoft** | DentalSoft | Argentina (La Plata y Rosario) | Profesional individual, consultorios y clínicas | Nube | Gratis (50 turnos/mes por 3 meses); Gestión $30.000/mes; Pro $60.000/mes (por profesional, moneda indicada solo con "$") | ✔ plan gratuito y demo sin tarjeta | No evidenciado. Reseñas de Google 5,0 (11), según el propio sitio | https://dentalsoft.com.ar/ · 24/11/2026 |
+| 4 | **Dentia** | Dentia | Argentina | Consultorios y clínicas; multisucursal | Web, instalable como app | Básico ARS 20.000/mes; Pro ARS 30.000/mes; Elite ARS 40.000/mes | ✔ prueba de 30 días | +100 clínicas _[afirmación comercial]_ | https://dentia.tech/ · 25/11/2026 |
+| 5 | **Oclusar** | No evidenciado | Argentina | Consultorio individual y clínica | Web, enfoque móvil | No evidenciado ("en pesos") | ✔ "empezás gratis, sin tarjeta" (límites No evidenciado) | No evidenciado | https://www.oclusar.com.ar/ · 25/11/2026 |
+| 6 | **ZYRA** | ZYRA Clinical Management | Argentina | Consultorios y clínicas | Nube (SaaS) | Starter ARS 15.000/mes (50 pacientes); Profesional ARS 29.000/mes; Premium ARS 39.000/mes | ✔ prueba de 30 días | +15 clínicas activas; +2.000 turnos | https://www.appzyra.ar/ · 24/11/2026 |
+| 7 | **DentalTec** | Tándem Digital | Argentina (San Juan) | Odontólogos, clínicas, círculos y federaciones, obras sociales | Web | Software: "costo por odontólogo" (valor No evidenciado). Packs de WhatsApp: USD 9 (50 mensajes), USD 25 (150), USD 48 (300) | ◐ "demo gratuita" (condiciones No evidenciado) | 2.000+ profesionales; 30+ instituciones | https://web.dentaltec.com.ar/ · 24/11/2026 |
+| 8 | **Odonto.ar** | Odonto.ar | Argentina (Córdoba) | Individual, consultorio, clínica de hasta 10 usuarios | Web (infraestructura Supabase) | Individual USD 29/mes; Profesional USD 49/mes; Clínica USD 99/mes (pago en ARS) | ✔ prueba de 30 días sin tarjeta | No evidenciado | https://odonto.ar/ · 24/11/2026 |
+| 9 | **VecDent** | Vectora | No evidenciado (dominio .ar, precios en ARS) | Independientes a redes de consultorios | Web | Básico ARS 30.000/mes; Profesional ARS 50.000/mes; Premium ARS 80.000/mes | ◐ demo en vivo con datos de ejemplo | No evidenciado | https://vectora.ar/pages/vecdent/ · 24/11/2026 |
+| 10 | **Atiendo** | No evidenciado | Argentina | Consultorios chicos y medianos, multiespecialidad | Web | Por profesional, en ARS (valor no legible); usuarios de secretaría sin costo | ✔ prueba de 30 días sin tarjeta | No evidenciado | https://atiendoapp.com/ · 24/11/2026 |
+| 11 | **Agenda Profesional** | No evidenciado | Argentina | Profesionales de la salud y consultorios | Web | No evidenciado. Comisión posible sobre señas con Mercado Pago | No evidenciado (alta no pública) | No evidenciado | https://www.agenda-profesional.com/ · 24/11/2026 |
+| 12 | **Doctoralia Pro (Argentina)** | Doctoralia Internet S.L. (grupo con presencia en 13 países) | Internacional, con oferta para Argentina | Especialistas de la salud con consulta privada | Nube y app | Starter ARS 25.000/mes; Plus ARS 35.000/mes; VIP ARS 55.000/mes (facturación anual); sitio web profesional +ARS 4.000/mes | ◐ "versión gratuita" sin detalle | Calificación 4,8 en Capterra/GetApp, según el propio sitio | https://pro.doctoralia.com/ar/precio · 24/11/2026 |
+| 13 | **Reservo** | No evidenciado | No evidenciado (dominio .cl, sitio para Argentina) | Consultorios médicos (no específico odontológico en lo leído) | No evidenciado | No evidenciado | ◐ "asesoría gratis" | +4.000 clientes en 15 países _[afirmación comercial]_ | https://reservo.cl/ar/ · 24/11/2026 |
+| 14 | **OdontoGRAMA** | Solsoftware (Julio Santolo) | No evidenciado (dominio .com.ar) | Consultorio | Nube _[afirmación comercial]_ | No evidenciado | ◐ "acceda a todas las funciones gratis" (condiciones No evidenciado) | No evidenciado | https://odontograma.com.ar/ · 24/11/2026 |
+| 15 | **Doctocliq** | Doctocliq | No evidenciado (opera en Latinoamérica; Argentina No evidenciado) | Independientes y clínicas dentales, estéticas y médicas | Nube y apps iOS/Android | Gratis USD 0; Individual USD 19/mes; Básico USD 29/mes; Avanzado USD 49/mes | ✔ plan gratuito; prueba de 7 días | +6.500 profesionales | https://www.doctocliq.com/planes-y-precios · 24/11/2026 |
+| 16 | **MR Dental Cloud** | MR Desarrollos Inteligentes | México | Dentistas, clínicas y grupos | Nube, app instalable, modo sin conexión | Básico MXN 750/mes; Premium MXN 950/mes | ◐ prueba de 30 o 7 días (inconsistente) | +100 clínicas _[afirmación comercial]_ | https://www.mrdentalcloud.com/precios · 24/11/2026 |
+| 17 | **Clinicorp** | Clinicorp | Brasil | Consultorios, clínicas, franquicias | Web y apps | Standard BRL 159,90/mes; Premium BRL 369,90/mes; Combo IA BRL 468,90/mes; implementación BRL 149,90–299 | No evidenciado (demo) | +32.000 clínicas en Brasil _[afirmación comercial]_ | https://www.clinicorp.com/planos · 24/11/2026 |
+| 18 | **Clinic Cloud** | Doctoralia España SL | España | Consultorios, clínicas, franquicias | Nube | Mini EUR 29/mes; Pro EUR 49/mes; Max EUR 79/mes (más IVA) | ✔ prueba sin tarjeta | +12.000 doctores | https://clinic-cloud.com/tarifas · 24/11/2026 |
+| 19 | **Dentally** | Henry Schein One UK Ltd | Reino Unido | Odontología: independientes a grupos multisede | Nube | Desde GBP 134/mes (Starter) hasta GBP 1.021/mes (Pro), según sillones, sin IVA | No evidenciado | No evidenciado (casos con nombre) | https://www.dentally.com/en-gb/pricing · 24/11/2026 |
 
 ### A.2 Agenda, turnos digitales y automatización
 
 | # | Sistema | Vistas y múltiples profesionales | Sillones / boxes | Prevención de solapamientos | Reserva online del paciente | WhatsApp | Recordatorios y confirmación | Lista de espera | Otras automatizaciones |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | Dentalink | Múltiples profesionales ✔; vistas NE | NE | NE | ✔ | ◐ Contact Center IA (adicional) que da, confirma y reprograma turnos | ✔ WhatsApp | NE | ◐ campañas y tareas automáticas (plan Titanium) |
-| 2 | Bilog | ✔ día, semana y por profesional; sobreturnos ✔ | ◐ "múltiples consultorios" | NE | ✔ link o QR; chatbot iAngela | ◐ alta desde WhatsApp; recordatorios | ✔ WhatsApp, SMS y email | NE | ◐ reprogramación de ausentes con aviso |
-| 3 | DentalSoft | ✔ día, semana y mes; arrastrar y soltar; multisucursal | NE | ✔ detección automática | ✔ 24/7 desde web propia; identificación por DNI | ◐ automático solo en Pro (en Gestión es manual); recepcionista IA (Pro) | ✔ WhatsApp y email; la agenda se actualiza con la respuesta | NE | ◐ campañas de recuperación, cobro de deudas y reseñas (Pro) |
-| 4 | Dentia | Múltiples profesionales ✔; sobreturnos ✔; vistas NE | NE | NE | ◐ vía asistente IA en WhatsApp (plan Elite) | ✔ asistente IA 24/7 | ✔ email (Básico) o WhatsApp (Pro) | NE | ✔ recaptación, controles, cumpleaños, reseñas (Elite) |
-| 5 | Oclusar | ◐ vista del día; equipo con roles | ✔ asignación de sillones | ✔ aviso automático | ✔ página propia; link por WhatsApp e Instagram | ◐ recordatorio manual "con un toque" | ◐ el paciente confirma desde el celular | NE | NE |
-| 6 | ZYRA | ◐ "agenda/calendario completo" | NE | NE | NE | ✔ vinculación del número propio por QR (no se indica API oficial) | ✔ WhatsApp automático (día anterior) y email; confirmación SÍ/NO | NE | ◐ módulo de fidelización (sin detalle) |
-| 7 | DentalTec | ✔ por odontólogo, con intervalos configurables | NE | NE | NE | ✔ "integración oficial" (sin precisar si es API) | ✔ WhatsApp al crear el turno; confirmación | NE | NE. Reducción de 40 % del ausentismo _[afirmación comercial]_ |
-| 8 | Odonto.ar | ✔ día, semana y mes; duración por motivo | NE | NE | ✔ link con reglas de anticipación y cancelación | NE | NE | NE | NE |
-| 9 | VecDent | ◐ semanal por profesional | NE | NE | ◐ portal del paciente | NE | NE | NE | ◐ "CRM" (sin detalle) |
-| 10 | Atiendo | ◐ agenda del día; bloqueos ✔ | NE | NE | ✔ 24 h, link o QR, sin crear cuenta | ◐ aviso manual; recordatorio "próximamente" | ✔ email (reserva, reprogramación, cancelación) | ✔ con cobertura automática de cancelaciones | NE |
-| 11 | Agenda Profesional | ✔ día y semana; excepciones | ◐ pestaña "Box" en captura | NE | ✔ página pública por profesional | ◐ botones que abren WhatsApp | ✔ email | ✔ | NE |
-| 12 | Doctoralia Pro | ◐ duración configurable; bloqueos | NE | NE | ✔ 24/7, directorio de pacientes, web, Google y redes | ◐ inconsistente entre páginas | ✔ email, push y SMS | ◐ solo plan VIP | ◐ campañas por SMS y email |
-| 13 | Reservo | NE | NE | NE | ◐ "turnero online" mencionado | NE | NE | NE | NE |
-| 14 | OdontoGRAMA | ◐ "agendas personalizables con control de asistencia" | NE | NE | NE | NE | NE | NE | NE |
-| 15 | Doctocliq | ✔ por consultorio y doctor | ◐ "por consultorio" | NE | ✔ en todos los planes | ✔ Soyla IA (adicional) | ✔ WhatsApp y email | NE | ◐ campañas (adicional) |
-| 16 | MR Dental Cloud | Profesionales ilimitados ✔ | NE | NE | ◐ vía chatbot de WhatsApp (Premium) | ✔ chatbot IA | ✔ WhatsApp, SMS y email; confirmación en un toque | NE | ◐ reagendamiento automático |
-| 17 | Clinicorp | ◐ "múltiples agendamientos" | NE | NE | ✔ con Google Business | ✔ agentes IA (paquete adicional) | ✔ WhatsApp, SMS, email y app | NE | ✔ alerta de retorno, agente de faltas, CRM |
-| 18 | Clinic Cloud | ✔ multiprofesional y multisede | ✔ salas y boxes | NE | ✔ vía Doctoralia | ✔ recordatorios | ✔ WhatsApp, SMS y email | NE | ✔ campañas por SMS y email |
-| 19 | Dentally | ✔ multisede; duración configurable | ✔ precio por sillón | NE | ✔ portal (link, QR o web) | NE | ✔ (canal NE) | ✔ y relleno de huecos de último momento | ✔ informes de recall |
+| 1 | Dentalink | Múltiples profesionales ✔; vistas No evidenciado | No evidenciado | No evidenciado | ✔ | ◐ Contact Center IA (adicional) que da, confirma y reprograma turnos | ✔ WhatsApp | No evidenciado | ◐ campañas y tareas automáticas (plan Titanium) |
+| 2 | Bilog | ✔ día, semana y por profesional; sobreturnos ✔ | ◐ "múltiples consultorios" | No evidenciado | ✔ link o QR; chatbot iAngela | ◐ alta desde WhatsApp; recordatorios | ✔ WhatsApp, SMS y email | No evidenciado | ◐ reprogramación de ausentes con aviso |
+| 3 | DentalSoft | ✔ día, semana y mes; arrastrar y soltar; multisucursal | No evidenciado | ✔ detección automática | ✔ 24/7 desde web propia; identificación por DNI | ◐ automático solo en Pro (en Gestión es manual); recepcionista IA (Pro) | ✔ WhatsApp y email; la agenda se actualiza con la respuesta | No evidenciado | ◐ campañas de recuperación, cobro de deudas y reseñas (Pro) |
+| 4 | Dentia | Múltiples profesionales ✔; sobreturnos ✔; vistas No evidenciado | No evidenciado | No evidenciado | ◐ vía asistente IA en WhatsApp (plan Elite) | ✔ asistente IA 24/7 | ✔ email (Básico) o WhatsApp (Pro) | No evidenciado | ✔ recaptación, controles, cumpleaños, reseñas (Elite) |
+| 5 | Oclusar | ◐ vista del día; equipo con roles | ✔ asignación de sillones | ✔ aviso automático | ✔ página propia; link por WhatsApp e Instagram | ◐ recordatorio manual "con un toque" | ◐ el paciente confirma desde el celular | No evidenciado | No evidenciado |
+| 6 | ZYRA | ◐ "agenda/calendario completo" | No evidenciado | No evidenciado | No evidenciado | ✔ vinculación del número propio por QR (no se indica API oficial) | ✔ WhatsApp automático (día anterior) y email; confirmación SÍ/NO | No evidenciado | ◐ módulo de fidelización (sin detalle) |
+| 7 | DentalTec | ✔ por odontólogo, con intervalos configurables | No evidenciado | No evidenciado | No evidenciado | ✔ "integración oficial" (sin precisar si es API) | ✔ WhatsApp al crear el turno; confirmación | No evidenciado | No evidenciado. Reducción de 40 % del ausentismo _[afirmación comercial]_ |
+| 8 | Odonto.ar | ✔ día, semana y mes; duración por motivo | No evidenciado | No evidenciado | ✔ link con reglas de anticipación y cancelación | No evidenciado | No evidenciado | No evidenciado | No evidenciado |
+| 9 | VecDent | ◐ semanal por profesional | No evidenciado | No evidenciado | ◐ portal del paciente | No evidenciado | No evidenciado | No evidenciado | ◐ "CRM" (sin detalle) |
+| 10 | Atiendo | ◐ agenda del día; bloqueos ✔ | No evidenciado | No evidenciado | ✔ 24 h, link o QR, sin crear cuenta | ◐ aviso manual; recordatorio "próximamente" | ✔ email (reserva, reprogramación, cancelación) | ✔ con cobertura automática de cancelaciones | No evidenciado |
+| 11 | Agenda Profesional | ✔ día y semana; excepciones | ◐ pestaña "Box" en captura | No evidenciado | ✔ página pública por profesional | ◐ botones que abren WhatsApp | ✔ email | ✔ | No evidenciado |
+| 12 | Doctoralia Pro | ◐ duración configurable; bloqueos | No evidenciado | No evidenciado | ✔ 24/7, directorio de pacientes, web, Google y redes | ◐ inconsistente entre páginas | ✔ email, push y SMS | ◐ solo plan VIP | ◐ campañas por SMS y email |
+| 13 | Reservo | No evidenciado | No evidenciado | No evidenciado | ◐ "turnero online" mencionado | No evidenciado | No evidenciado | No evidenciado | No evidenciado |
+| 14 | OdontoGRAMA | ◐ "agendas personalizables con control de asistencia" | No evidenciado | No evidenciado | No evidenciado | No evidenciado | No evidenciado | No evidenciado | No evidenciado |
+| 15 | Doctocliq | ✔ por consultorio y doctor | ◐ "por consultorio" | No evidenciado | ✔ en todos los planes | ✔ Soyla IA (adicional) | ✔ WhatsApp y email | No evidenciado | ◐ campañas (adicional) |
+| 16 | MR Dental Cloud | Profesionales ilimitados ✔ | No evidenciado | No evidenciado | ◐ vía chatbot de WhatsApp (Premium) | ✔ chatbot IA | ✔ WhatsApp, SMS y email; confirmación en un toque | No evidenciado | ◐ reagendamiento automático |
+| 17 | Clinicorp | ◐ "múltiples agendamientos" | No evidenciado | No evidenciado | ✔ con Google Business | ✔ agentes IA (paquete adicional) | ✔ WhatsApp, SMS, email y app | No evidenciado | ✔ alerta de retorno, agente de faltas, CRM |
+| 18 | Clinic Cloud | ✔ multiprofesional y multisede | ✔ salas y boxes | No evidenciado | ✔ vía Doctoralia | ✔ recordatorios | ✔ WhatsApp, SMS y email | No evidenciado | ✔ campañas por SMS y email |
+| 19 | Dentally | ✔ multisede; duración configurable | ✔ precio por sillón | No evidenciado | ✔ portal (link, QR o web) | No evidenciado | ✔ (canal No evidenciado) | ✔ y relleno de huecos de último momento | ✔ informes de recall |
 
 ### A.3 Gestión odontológica clínica y administración
 
 | # | Sistema | Historia clínica | Odontograma | Periodontograma | Imágenes / RX | Presupuestos / plan de tratamiento | Caja y cobros | Facturación ARCA | Mercado Pago | Obras sociales / prepagas | Liquidaciones y reportes |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Dentalink | ✔ y consentimientos | ✔ | ✔ | ✔ (RX con IA, adicional) | ✔ / ◐ "próximamente" | ✔ | NE | NE | ✔ | ✔ comisiones y reportes |
-| 2 | Bilog | ✔ y consentimientos con firma | ✔ | NE | ✔ fotos, videos y PDF | ✔ / NE | ◐ pagos | ◐ facturación electrónica mencionada | NE | ✔ | ✔ obras sociales y honorarios |
-| 3 | DentalSoft | ✔ | ✔ FDI, 18 estados | NE | ✔ 5–10 GB | ✔ / ✔ | ✔ | NE | ✔ señas y links de pago | ✔ | ✔ comisiones y KPIs |
+| 1 | Dentalink | ✔ y consentimientos | ✔ | ✔ | ✔ (RX con IA, adicional) | ✔ / ◐ "próximamente" | ✔ | No evidenciado | No evidenciado | ✔ | ✔ comisiones y reportes |
+| 2 | Bilog | ✔ y consentimientos con firma | ✔ | No evidenciado | ✔ fotos, videos y PDF | ✔ / No evidenciado | ◐ pagos | ◐ facturación electrónica mencionada | No evidenciado | ✔ | ✔ obras sociales y honorarios |
+| 3 | DentalSoft | ✔ | ✔ FDI, 18 estados | No evidenciado | ✔ 5–10 GB | ✔ / ✔ | ✔ | No evidenciado | ✔ señas y links de pago | ✔ | ✔ comisiones y KPIs |
 | 4 | Dentia | ✔ configurable | ✔ por voz | ✔ | ✔ RX y cefalometría con IA | ✔ / ✔ | ✔ | ✔ A, B, C y notas | ✔ | ✔ | ✔ |
-| 5 | Oclusar | ✔ evoluciones inalterables | ✔ | NE | NE | ✔ / NE | ✔ | ✔ | ✔ señas | ◐ presentaciones | NE |
-| 6 | ZYRA | ✔ | ✔ adultos y niños | NE | ✔ | ✔ PDF / NE | ✔ (desde Profesional) | ✔ (Premium) | NE | ✔ aranceles | ✔ honorarios (PDF) |
-| 7 | DentalTec | ✔ | ✔ con CIE-10 | NE | ✔ adjuntos | NE | NE | ✔ | NE | ✔ validación en línea | ✔ a prestadores; PDF y Excel |
-| 8 | Odonto.ar | ✔ | ✔ con registro de cambios | NE | ✔ | ✔ / ✔ | ◐ panel de finanzas | NE | NE (solo para la suscripción) | ✔ cálculo de cobertura | NE |
-| 9 | VecDent | ✔ | ✔ por voz | ✔ 6 puntos | ◐ RX con IA, sin detalle | ✔ / NE | NE | NE | NE | ✔ | ✔ (Premium) |
-| 10 | Atiendo | ✔ 33 plantillas | ✔ FDI | NE | ✔ | NE / ✔ | NE | ✘ declara que no emite | ✔ señas | ✔ con copagos | ◐ estadísticas por obra social |
-| 11 | Agenda Profesional | ✔ | ✔ | ✔ | ✔ | ✔ / ◐ | ✔ | NE | ✔ señas | ✔ | NE |
-| 12 | Doctoralia Pro | ◐ registros médicos (planes pagos) | NE | NE | ◐ documentos | NE | NE | NE | NE | NE | ◐ informes |
-| 13 | Reservo | ◐ "ficha clínica" | NE | NE | NE | NE | NE | ◐ mencionada | ◐ mencionado | NE | NE |
-| 14 | OdontoGRAMA | ◐ ficha con imágenes | NE | NE | ◐ | NE | ✔ caja y cuentas corrientes | NE | NE | ✔ facturación a obras sociales | ✔ estadísticas |
-| 15 | Doctocliq | ✔ y anamnesis | ✔ | ✔ | ✔ 1–20 GB | ✔ por fases | ◐ información contradictoria | NE | NE | NE | ✔ comisiones |
-| 16 | MR Dental Cloud | ✔ NOM-004 | ✔ 2D y 3D | NE | ✔ | NE | NE | N/A (SAT México) | NE | NE | NE |
-| 17 | Clinicorp | ✔ y anamnesis | ✔ | NE | ✔ integraciones de radiología | ✔ / ✔ | ✔ | N/A (Brasil) | NE | ◐ reportes de convenios | ✔ comisiones |
-| 18 | Clinic Cloud | ✔ | ◐ plan Max | ◐ | NE | ✔ / NE | ✔ | N/A (España) | NE | ◐ mutuas | ✔ |
-| 19 | Dentally | ✔ | ✔ | NE | ✔ con IA | ✔ / ✔ | ◐ pagos vía terceros | N/A | NE | N/A (NHS) | ✔ |
+| 5 | Oclusar | ✔ evoluciones inalterables | ✔ | No evidenciado | No evidenciado | ✔ / No evidenciado | ✔ | ✔ | ✔ señas | ◐ presentaciones | No evidenciado |
+| 6 | ZYRA | ✔ | ✔ adultos y niños | No evidenciado | ✔ | ✔ PDF / No evidenciado | ✔ (desde Profesional) | ✔ (Premium) | No evidenciado | ✔ aranceles | ✔ honorarios (PDF) |
+| 7 | DentalTec | ✔ | ✔ con CIE-10 | No evidenciado | ✔ adjuntos | No evidenciado | No evidenciado | ✔ | No evidenciado | ✔ validación en línea | ✔ a prestadores; PDF y Excel |
+| 8 | Odonto.ar | ✔ | ✔ con registro de cambios | No evidenciado | ✔ | ✔ / ✔ | ◐ panel de finanzas | No evidenciado | No evidenciado (solo para la suscripción) | ✔ cálculo de cobertura | No evidenciado |
+| 9 | VecDent | ✔ | ✔ por voz | ✔ 6 puntos | ◐ RX con IA, sin detalle | ✔ / No evidenciado | No evidenciado | No evidenciado | No evidenciado | ✔ | ✔ (Premium) |
+| 10 | Atiendo | ✔ 33 plantillas | ✔ FDI | No evidenciado | ✔ | No evidenciado / ✔ | No evidenciado | ✘ declara que no emite | ✔ señas | ✔ con copagos | ◐ estadísticas por obra social |
+| 11 | Agenda Profesional | ✔ | ✔ | ✔ | ✔ | ✔ / ◐ | ✔ | No evidenciado | ✔ señas | ✔ | No evidenciado |
+| 12 | Doctoralia Pro | ◐ registros médicos (planes pagos) | No evidenciado | No evidenciado | ◐ documentos | No evidenciado | No evidenciado | No evidenciado | No evidenciado | No evidenciado | ◐ informes |
+| 13 | Reservo | ◐ "ficha clínica" | No evidenciado | No evidenciado | No evidenciado | No evidenciado | No evidenciado | ◐ mencionada | ◐ mencionado | No evidenciado | No evidenciado |
+| 14 | OdontoGRAMA | ◐ ficha con imágenes | No evidenciado | No evidenciado | ◐ | No evidenciado | ✔ caja y cuentas corrientes | No evidenciado | No evidenciado | ✔ facturación a obras sociales | ✔ estadísticas |
+| 15 | Doctocliq | ✔ y anamnesis | ✔ | ✔ | ✔ 1–20 GB | ✔ por fases | ◐ información contradictoria | No evidenciado | No evidenciado | No evidenciado | ✔ comisiones |
+| 16 | MR Dental Cloud | ✔ NOM-004 | ✔ 2D y 3D | No evidenciado | ✔ | No evidenciado | No evidenciado | N/A (SAT México) | No evidenciado | No evidenciado | No evidenciado |
+| 17 | Clinicorp | ✔ y anamnesis | ✔ | No evidenciado | ✔ integraciones de radiología | ✔ / ✔ | ✔ | N/A (Brasil) | No evidenciado | ◐ reportes de convenios | ✔ comisiones |
+| 18 | Clinic Cloud | ✔ | ◐ plan Max | ◐ | No evidenciado | ✔ / No evidenciado | ✔ | N/A (España) | No evidenciado | ◐ mutuas | ✔ |
+| 19 | Dentally | ✔ | ✔ | No evidenciado | ✔ con IA | ✔ / ✔ | ◐ pagos vía terceros | N/A | No evidenciado | N/A (NHS) | ✔ |
 
 ### A.4 Integraciones, operación, seguridad y cumplimiento
 
 | # | Sistema | Google Calendar | API pública | Roles y auditoría | Exportación de datos | Sucursales | Seguridad y normativa declaradas |
 |---|---|---|---|---|---|---|---|
-| 1 | Dentalink | NE | ✔ adicional | Roles ✔; auditoría NE | ✔ | ✔ (Pro) | ISO 27001, AWS, cifrado, respaldos diarios, HIPAA. Ley 25.326: NE |
-| 2 | Bilog | ◐ "calendario" | ✘ sin API documentada | Roles ✔; ◐ trazabilidad en auditoría de obras sociales | NE | ✔ | Ley 25.506 (firma). Ley 25.326 y respaldos: NE |
-| 3 | DentalSoft | ✔ por profesional | NE | Roles ✔; registros de actividad ✔ | ✔ e importación desde Excel/CSV | ✔ | **Ley 25.326 y AAIP**; TLS; hash; base aislada por clínica |
-| 4 | Dentia | ✔ | NE | 17 perfiles ✔; auditoría ✔; 2FA ✔ | ✔ | ✔ | **Ley 25.326**. Respaldos: NE |
-| 5 | Oclusar | ✔ bidireccional | NE | Roles ✔; correcciones con fecha y autor ✔ | ✔ completa, con imágenes | NE | **Leyes 26.529, 25.326 y 25.506; Decreto 1089/2012**; SHA-256; copias diarias |
-| 6 | ZYRA | NE | NE | Permisos granulares ✔; auditoría NE | NE | NE | "Datos encriptados y respaldados" _[afirmación comercial]_ |
-| 7 | DentalTec | NE | NE | 10 roles ✔; auditoría ✔ | ◐ reportes en PDF y Excel | ◐ multientidad | JWT, bcrypt, respaldo automático. Ley 25.326: NE |
-| 8 | Odonto.ar | NE | NE | Permisos ✔; ◐ auditoría del odontograma | NE | NE | **Ley 25.326 y AAIP**; cifrado en tránsito y en reposo; RLS. Datos posiblemente fuera de Argentina |
-| 9 | VecDent | NE | NE | Roles ✔ | NE | ✔ multiconsultorio | "Permisos por usuario" _[afirmación comercial]_ |
-| 10 | Atiendo | ✔ | NE | Roles ✔; registro de accesos a la historia clínica ✔ | ✔ PDF y al dar de baja | NE | Cifrado, copias diarias, datos separados por consultorio. Política de privacidad no legible |
-| 11 | Agenda Profesional | ◐ solo enlaces, sin sincronización | NE | ◐ cuentas de equipo | NE | NE | **Leyes 25.326 y 26.529**; contraseñas cifradas. Respaldo a cargo del profesional |
-| 12 | Doctoralia Pro | ◐ Google Business | NE | NE | NE | ◐ varias direcciones | RGPD, AWS. Ley 25.326: NE |
-| 13 | Reservo | NE | NE | NE | NE | NE | NE |
-| 14 | OdontoGRAMA | NE | NE | NE | NE | NE | "Olvídese de los backups" _[afirmación comercial]_ |
+| 1 | Dentalink | No evidenciado | ✔ adicional | Roles ✔; auditoría No evidenciado | ✔ | ✔ (Pro) | ISO 27001, AWS, cifrado, respaldos diarios, HIPAA. Ley 25.326: No evidenciado |
+| 2 | Bilog | ◐ "calendario" | ✘ sin API documentada | Roles ✔; ◐ trazabilidad en auditoría de obras sociales | No evidenciado | ✔ | Ley 25.506 (firma). Ley 25.326 y respaldos: No evidenciado |
+| 3 | DentalSoft | ✔ por profesional | No evidenciado | Roles ✔; registros de actividad ✔ | ✔ e importación desde Excel/CSV | ✔ | **Ley 25.326 y AAIP**; TLS; hash; base aislada por clínica |
+| 4 | Dentia | ✔ | No evidenciado | 17 perfiles ✔; auditoría ✔; 2FA ✔ | ✔ | ✔ | **Ley 25.326**. Respaldos: No evidenciado |
+| 5 | Oclusar | ✔ bidireccional | No evidenciado | Roles ✔; correcciones con fecha y autor ✔ | ✔ completa, con imágenes | No evidenciado | **Leyes 26.529, 25.326 y 25.506; Decreto 1089/2012**; SHA-256; copias diarias |
+| 6 | ZYRA | No evidenciado | No evidenciado | Permisos granulares ✔; auditoría No evidenciado | No evidenciado | No evidenciado | "Datos encriptados y respaldados" _[afirmación comercial]_ |
+| 7 | DentalTec | No evidenciado | No evidenciado | 10 roles ✔; auditoría ✔ | ◐ reportes en PDF y Excel | ◐ multientidad | JWT, bcrypt, respaldo automático. Ley 25.326: No evidenciado |
+| 8 | Odonto.ar | No evidenciado | No evidenciado | Permisos ✔; ◐ auditoría del odontograma | No evidenciado | No evidenciado | **Ley 25.326 y AAIP**; cifrado en tránsito y en reposo; RLS. Datos posiblemente fuera de Argentina |
+| 9 | VecDent | No evidenciado | No evidenciado | Roles ✔ | No evidenciado | ✔ multiconsultorio | "Permisos por usuario" _[afirmación comercial]_ |
+| 10 | Atiendo | ✔ | No evidenciado | Roles ✔; registro de accesos a la historia clínica ✔ | ✔ PDF y al dar de baja | No evidenciado | Cifrado, copias diarias, datos separados por consultorio. Política de privacidad no legible |
+| 11 | Agenda Profesional | ◐ solo enlaces, sin sincronización | No evidenciado | ◐ cuentas de equipo | No evidenciado | No evidenciado | **Leyes 25.326 y 26.529**; contraseñas cifradas. Respaldo a cargo del profesional |
+| 12 | Doctoralia Pro | ◐ Google Business | No evidenciado | No evidenciado | No evidenciado | ◐ varias direcciones | RGPD, AWS. Ley 25.326: No evidenciado |
+| 13 | Reservo | No evidenciado | No evidenciado | No evidenciado | No evidenciado | No evidenciado | No evidenciado |
+| 14 | OdontoGRAMA | No evidenciado | No evidenciado | No evidenciado | No evidenciado | No evidenciado | "Olvídese de los backups" _[afirmación comercial]_ |
 | 15 | Doctocliq | ◐ importación | ◐ adicional | Roles por módulo ✔ | ◐ al cancelar (15 días) | ◐ adicional | "Normativa local" genérica |
-| 16 | MR Dental Cloud | NE | ✔ REST y HL7 FHIR | Roles ✔; auditoría inmutable ✔ | ✔ PDF y JSON | ✔ | NOM-004/024, LFPDPPP, GDPR; AES-256; respaldos diarios (México) |
-| 17 | Clinicorp | NE | NE | Roles ✔ | NE | ✔ | LGPD (Brasil); prontuario cifrado |
-| 18 | Clinic Cloud | NE | NE | Permisos ✔; 2FA ✔ | NE | ✔ | RGPD; insignia ISO 27001 |
-| 19 | Dentally | NE | ◐ Developer Hub (no leído) | 5 roles ✔; registro de auditoría ✔; 2FA; restricción por IP | NE | ✔ | AWS UE, BCrypt, TLS, respaldos (Reino Unido/UE) |
+| 16 | MR Dental Cloud | No evidenciado | ✔ REST y HL7 FHIR | Roles ✔; auditoría inmutable ✔ | ✔ PDF y JSON | ✔ | NOM-004/024, LFPDPPP, GDPR; AES-256; respaldos diarios (México) |
+| 17 | Clinicorp | No evidenciado | No evidenciado | Roles ✔ | No evidenciado | ✔ | LGPD (Brasil); prontuario cifrado |
+| 18 | Clinic Cloud | No evidenciado | No evidenciado | Permisos ✔; 2FA ✔ | No evidenciado | ✔ | RGPD; insignia ISO 27001 |
+| 19 | Dentally | No evidenciado | ◐ Developer Hub (no leído) | 5 roles ✔; registro de auditoría ✔; 2FA; restricción por IP | No evidenciado | ✔ | AWS UE, BCrypt, TLS, respaldos (Reino Unido/UE) |
 
 ### A.5 Fortalezas, limitaciones y diferenciales evidentes
 
@@ -172,7 +182,7 @@ Ordenados por relevancia para el mercado argentino: oferta local explícita, esp
 | 12 | Doctoralia Pro | Visibilidad ante pacientes (directorio); reserva 24/7 multicanal; precios en ARS | Sin funciones odontológicas; información de WhatsApp inconsistente | Marketplace de pacientes |
 | 13 | Reservo | Oferta explícita con ARCA y Mercado Pago para Argentina | Información pública mínima legible | Escala regional declarada |
 | 14 | OdontoGRAMA | Gratuidad declarada | Información funcional mínima | Trayectoria como software de escritorio _[afirmación comercial]_ |
-| 15 | Doctocliq | Plan gratuito; precios en USD; odontograma y periodontograma en todos los planes | Argentina no figura entre sus mercados; facturación local NE | Agente IA de WhatsApp (Soyla) |
+| 15 | Doctocliq | Plan gratuito; precios en USD; odontograma y periodontograma en todos los planes | Argentina no figura entre sus mercados; facturación local No evidenciado | Agente IA de WhatsApp (Soyla) |
 | 16 | MR Dental Cloud | Documentación de seguridad muy detallada; API y FHIR | Orientado a México | Seguridad y auditoría documentadas |
 | 17 | Clinicorp | Automatización de retorno, faltas y cobranza; capacitación incluida | Solo Brasil; costos de implementación | Agentes IA para faltas y cobranza |
 | 18 | Clinic Cloud | Integración con Doctoralia; salas y boxes; IA para notas clínicas | Orientado a España | Combinación de marketplace y gestión clínica |
@@ -191,9 +201,10 @@ Ordenados por relevancia para el mercado argentino: oferta local explícita, esp
   - **3:** cobertura funcional razonable, con vacíos relevantes.
   - **4:** cobertura amplia y detallada.
   - **5:** cobertura completa y detallada, o referente del relevamiento.
-- **Tratamiento de "No evidenciado":** un NE se puntúa como ausencia (criterio conservador). La puntuación mide **la evidencia pública disponible**, no la capacidad real del producto. Un sistema con poca documentación pública (Reservo, OdontoGRAMA, VecDent) puede estar subvaluado, y eso debe corregirse en las demos.
+- **Tratamiento de "No evidenciado":** un dato "No evidenciado" se puntúa como ausencia (criterio conservador). La puntuación mide **la evidencia pública disponible**, no la capacidad real del producto. Un sistema con poca documentación pública (Reservo, OdontoGRAMA, VecDent) puede estar subvaluado, y eso debe corregirse en las demos.
 - **Integraciones de otros países:** las integraciones que no aplican a Argentina (SAT, NFS-e, NHS, Verifactu) no suman en el criterio "Integraciones locales y WhatsApp".
 - **Afirmaciones comerciales:** las afirmaciones sin detalle no suman.
+- **Ajuste por la verificación manual (v1.2):** Bilog pasa de 2 a 3 en "Precio y facilidad de adopción" por el plan gratuito confirmado el 25/11/2026 (total 3,45 → 3,50; conserva el puesto 8). El resto de las notas no cambia.
 - **Puntaje total:** Σ (nota × peso). Los pesos son T 25 %, C 20 %, I 15 %, A 15 %, P 10 %, S 10 % y $ 5 %.
 
 **Referencias de columnas:**
@@ -214,7 +225,7 @@ Ordenados por relevancia para el mercado argentino: oferta local explícita, esp
 | 5 | Dentalink | 4 | 5 | 3 | 3 | 3 | 4 | 2 | **3,70** |
 | 5 | Clinicorp _(referencia, Brasil)_ | 5 | 5 | 1 | 3 | 4 | 3 | 3 | **3,70** |
 | 7 | ZYRA | 3 | 4 | 4 | 5 | 2 | 2 | 5 | **3,55** |
-| 8 | Bilog | 4 | 4 | 3 | 4 | 3 | 2 | 2 | **3,45** |
+| 8 | Bilog | 4 | 4 | 3 | 4 | 3 | 2 | 3 | **3,50** |
 | 9 | DentalTec | 3 | 3 | 4 | 5 | 2 | 4 | 2 | **3,40** |
 | 10 | Doctocliq | 4 | 5 | 2 | 2 | 3 | 2 | 5 | **3,35** |
 | 11 | MR Dental Cloud _(referencia, México)_ | 4 | 4 | 2 | 1 | 3 | 5 | 4 | **3,25** |
@@ -333,38 +344,44 @@ _Alternativa:_ **Atiendo**, si se busca contrastar con el competidor de alcance 
 
 ## Verificación de fuentes
 
-> Tabla para completar en la revisión manual de 5 fuentes. Las filas sugieren qué verificar, elegido por su impacto en las conclusiones; pueden reemplazarse por otras.
+El 25/11/2026 se volvieron a abrir cinco fuentes oficiales, una por sistema y de distinto tipo (inicio con precios, página de planes, política de privacidad), elegidas por su impacto en las conclusiones. Se registra solo lo que se pudo observar en cada página. Comprobar una característica en el sitio no equivale a haber probado el sistema.
 
-| # | Sistema | URL a verificar | Dato a verificar | Fecha de verificación | Resultado (Confirmado / Diferente / No encontrado) | Observaciones | Verificado por |
-|---|---|---|---|---|---|---|---|
-| 1 | Dentia | https://dentia.tech/ | Precios Básico, Pro y Elite (ARS 20.000, 30.000, 40.000/mes) y ARCA | | | | |
-| 2 | DentalSoft | https://www.dentalsoft.com.ar/privacidad | Mención de la Ley 25.326 y AAIP; detección de solapamientos en la agenda | | | | |
-| 3 | Oclusar | https://www.oclusar.com.ar/ | Asignación de sillones con aviso de solapamiento; leyes 26.529 y 25.326 | | | | |
-| 4 | Bilog | https://bilog.com.ar/ | +1.500 clínicas; ausencia de precios publicados | | | | |
-| 5 | Dentalink | https://www.softwaredentalink.com/ar/planes | Precios no publicados; módulos adicionales (Contact Center IA, API) | | | | |
+| # | Sistema · tipo de fuente | URL revisada | Qué afirmaba el informe | Qué se encontró | Resultado | Qué se corrigió |
+|---|---|---|---|---|---|---|
+| 1 | Dentia · inicio con precios | https://dentia.tech/ | Planes Básico, Pro y Elite a ARS 20.000, 30.000 y 40.000 por mes; prueba de 30 días. | La página publica Básico ($20.000/mes), Pro ($30.000/mes) y Elite ($40.000/mes), con precio anual aparte, 30 días gratis y sin contratos. | **Confirmado** (en la segunda revisión) | En la v1.1 se registró por error que Dentia ofrecía planes Esencial, Pro y Titanium a cotizar, que son los datos de Dentalink (fila 5). Al volver a abrir la página se detectó la confusión y se restauraron los datos originales en el resumen, en A.1, en A.5 y en D.1. |
+| 2 | DentalSoft · política de privacidad | https://www.dentalsoft.com.ar/privacidad | Mención de la Ley 25.326 y de la AAIP; detección de solapamientos en la agenda. | La política declara que protege los datos personales y menciona expresamente el cumplimiento de la Ley 25.326. | **Confirmado parcialmente** | La mención de la AAIP y la detección de solapamientos no se comprobaron en esta página; quedan como dato del relevamiento inicial, sin validación manual. |
+| 3 | Oclusar · inicio | https://www.oclusar.com.ar/ | Asignación de sillones con aviso de solapamiento; leyes 26.529 y 25.326. | Reserva online por enlace compartido por WhatsApp o Instagram, turnos que ingresan a la agenda, aviso de superposición, recordatorios por WhatsApp, señas con Mercado Pago, historia clínica y odontograma. | **Confirmado** para las funciones descritas | La asignación específica de sillones no se pudo comprobar en esta revisión: se mantiene como dato del relevamiento inicial, no como dato verificado. |
+| 4 | Bilog · inicio | https://bilog.com.ar/ | Más de 1.500 clínicas; precios no publicados; sin plan gratuito evidenciado. | Plan gratuito; agenda, historia clínica, recordatorios, turnos online, alta por QR y app móvil; funciones para clínicas. Declara más de 1.500 clínicas y consultorios. No muestra precios. | **Diferente** (plan gratuito) | Se agregó el plan gratuito en A.1 y se subió de 2 a 3 la nota de "Precio y facilidad de adopción" (matriz B). La cifra de 1.500 clínicas se marcó como afirmación comercial. |
+| 5 | Dentalink · página de planes | https://www.softwaredentalink.com/ar/planes | Precios no publicados. | Planes Esencial, Pro y Titanium; cada uno pide solicitar una cotización. No se muestran precios. | **Confirmado** | Se agregaron los nombres de los planes en A.1. |
+
+Las cinco verificaciones las hizo Llerena Romina el 25/11/2026. La de Dentia se repitió ese mismo día.
+
+**Hallazgo principal de la verificación:** el dato de Dentia del relevamiento inicial era correcto; el error apareció en la v1.1, durante la revisión, al cruzarse las páginas de planes de dos proveedores distintos. Por eso cada corrección se contrasta con la fuente antes de reemplazar un dato.
+
+**Alcance:** esta verificación cubre cinco fuentes y los datos consignados arriba. El resto de la tabla comparativa se apoya en las referencias del relevamiento y no en pruebas personales. Cuando un dato no aparece en la página revisada se consigna como "No evidenciado", nunca se completa por suposición.
 
 ---
 
 ## Referencias completas
 
-Todas las fuentes se consultaron el **24/11/2026**.
+Las fuentes se consultaron el **24/11/2026**. Las cinco fuentes de la sección "Verificación de fuentes" se revisaron otra vez el **25/11/2026**.
 
 ### Fuentes oficiales leídas (evidencia)
 
 | Sistema | URL | Fecha de consulta | Observación |
 |---|---|---|---|
 | Dentalink | https://www.softwaredentalink.com/ar | 24/11/2026 | Inicio para Argentina |
-| Dentalink | https://www.softwaredentalink.com/ar/planes | 24/11/2026 | Planes (sin precios) |
-| Bilog | https://bilog.com.ar/ | 24/11/2026 | Inicio |
+| Dentalink | https://www.softwaredentalink.com/ar/planes | 24/11/2026 y 25/11/2026 (verificación manual) | Planes (sin precios) |
+| Bilog | https://bilog.com.ar/ | 24/11/2026 y 25/11/2026 (verificación manual) | Inicio |
 | Bilog | https://bilog.com.ar/llms.txt | 24/11/2026 | Descripción oficial para asistentes |
 | DentalSoft | https://dentalsoft.com.ar/ | 24/11/2026 | Inicio y precios |
-| DentalSoft | https://www.dentalsoft.com.ar/privacidad | 24/11/2026 | Política de privacidad |
+| DentalSoft | https://www.dentalsoft.com.ar/privacidad | 24/11/2026 y 25/11/2026 (verificación manual) | Política de privacidad |
 | Odonto.ar | https://odonto.ar/ | 24/11/2026 | Inicio y precios |
 | Odonto.ar | https://odonto.ar/privacidad | 24/11/2026 | Política de privacidad |
-| Oclusar | https://www.oclusar.com.ar/ | 24/11/2026 | Inicio |
+| Oclusar | https://www.oclusar.com.ar/ | 24/11/2026 y 25/11/2026 (verificación manual) | Inicio |
 | Oclusar | https://www.oclusar.com.ar/guias | 24/11/2026 | Guías |
 | OdontoGRAMA | https://odontograma.com.ar/ | 24/11/2026 | Página única |
-| Dentia | https://dentia.tech/ | 24/11/2026 | Inicio y precios |
+| Dentia | https://dentia.tech/ | 24/11/2026 y 25/11/2026 (verificación manual) | Inicio y precios |
 | ZYRA | https://www.appzyra.ar/ | 24/11/2026 | Leído con navegador (contenido cargado con JavaScript) |
 | VecDent | https://vectora.ar/pages/vecdent/ | 24/11/2026 | Página de producto y precios |
 | DentalTec | https://web.dentaltec.com.ar/ | 24/11/2026 | Inicio |
@@ -419,4 +436,4 @@ Todas las fuentes se consultaron el **24/11/2026**.
 
 ### Candidatos identificados y no relevados
 
-Benty, DentalCore, Dentiqa, NacarOS, NexaDental y Odontosist. Aparecieron en las búsquedas, pero quedaron fuera por menor relevancia para Argentina o por falta de oferta local evidenciada. Pueden incorporarse en una versión 1.1 del informe.
+Benty, DentalCore, Dentiqa, NacarOS, NexaDental y Odontosist. Aparecieron en las búsquedas, pero quedaron fuera por menor relevancia para Argentina o por falta de oferta local evidenciada. Pueden incorporarse en una versión posterior del informe.

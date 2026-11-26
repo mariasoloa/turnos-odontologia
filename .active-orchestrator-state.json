@@ -8,7 +8,8 @@
     "completed_on": "2026-11-24",
     "market_report": "docs/discovery/informe-discovery.md",
     "sources_fetched_at": "2026-11-24",
-    "sources_verification": "pending (revisión manual de 5 fuentes por el usuario)",
+    "sources_verification": "done (2026-11-25, 5 fuentes, Llerena Romina; informe v1.2)",
+    "market_report_pdf": "docs/discovery/informe-discovery.pdf",
     "sources": [
       "https://www.softwaredentalink.com/ar", "https://bilog.com.ar/", "https://dentalsoft.com.ar/", "https://dentia.tech/",
       "https://www.oclusar.com.ar/", "https://www.appzyra.ar/", "https://web.dentaltec.com.ar/", "https://odonto.ar/",
