@@ -7,7 +7,7 @@
 | Campo | Valor |
 |---|---|
 | **Título** | Investigación de mercado: sistemas odontológicos de gestión de turnos y agenda (Argentina, Latinoamérica e internacional) |
-| **Materia** | Metodología I — Tecnicatura Universitaria en Programación |
+| **Materia** | Desarrollo de Software — Ingeniería en Sistemas de Infomración |
 | **Trabajo** | Trabajo de Integración: del Discovery al primer Change, con Spec-Driven Development y Active Stack |
 | **Integrantes** | Laciar Yanela · Llerena Romina · Soloa María de los Ángeles · Urbani Constanza |
 | **Proyecto** | turnos-odontologia |
