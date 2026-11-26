@@ -28,6 +28,8 @@ Hoy los consultorios resuelven esto con agenda de papel, teléfono, WhatsApp y G
 
 Existen SaaS odontológicos en el mercado argentino que el equipo considera competencia, pero **todavía no fueron relevados**. El análisis se hará en `docs/discovery/informe-discovery.md`.
 
+> **Actualización (25/11/2026):** el relevamiento ya está hecho. El informe `docs/discovery/informe-discovery.md` compara 19 sistemas; los cinco prioritarios para demo son Dentia, DentalSoft, Dentalink, Bilog y Oclusar.
+
 ## 5. Funcionalidades necesarias (MVP, en orden de prioridad)
 
 1. Agenda por profesional y por sillón/box, sin solapamientos.
@@ -79,7 +81,7 @@ Existen SaaS odontológicos en el mercado argentino que el equipo considera comp
 
 ## 11. Preguntas abiertas
 
-- ¿Qué SaaS odontológicos compiten, qué ofrecen y cuánto cobran? (se responde en `informe-discovery.md`)
+- ~~¿Qué SaaS odontológicos compiten, qué ofrecen y cuánto cobran?~~ Resuelta el 25/11/2026 en `informe-discovery.md`.
 - ¿Qué precio y qué planes tendrá la suscripción? ¿Habrá prueba gratuita?
 - ¿Hace falta inscribir la base de datos ante la AAIP y definir un texto de consentimiento para el paciente?
 - ¿Se limitan las notas de la ficha para no almacenar datos clínicos antes del módulo de historia clínica?

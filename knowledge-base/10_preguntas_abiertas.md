@@ -39,3 +39,9 @@
 | PA-13 | Baja | ¿Qué proveedor de WhatsApp usamos: Cloud API de Meta directa o un proveedor intermediario? ¿Cuál es el costo por conversación de utilidad en Argentina? | Etapa WhatsApp | Equipo |
 | PA-14 | Baja | ¿Se usan las verificaciones de cumplimiento visible (política pública, página de seguridad) como argumento comercial desde el lanzamiento? | Landing | Producto |
 | PA-15 | Resuelta | ~~Verificar manualmente las 5 fuentes marcadas en `docs/discovery/informe-discovery.md`.~~ Resuelta el 25/11/2026: ver la sección "Verificación de fuentes" del informe v1.2. | — | Equipo |
+| PA-16 | Media | ¿Oclusar asigna sillones a los turnos y qué marco normativo declara? Ninguno de los dos datos se pudo comprobar en la verificación manual (informe, Verificación de fuentes, fila 3). | Demo de competidores (D.1) | Equipo |
+| PA-17 | Media | ¿Cómo maneja Dentia las vistas de agenda, los sillones/boxes y la prevención de solapamientos? Figuran como "No evidenciado" en la tabla A.2. | Demo de competidores (D.1) | Equipo |
+| PA-18 | Media | ¿DentalSoft menciona la AAIP y detecta solapamientos? Ambos datos quedaron sin validación manual (Verificación de fuentes, fila 2). | Demo de competidores (D.1) | Equipo |
+| PA-19 | Media | ¿Algún competidor ofrece una política de ausentismo configurable (bloqueo tras N ausencias)? Ninguno la evidencia públicamente (C.3, punto 2); hay que confirmarlo en las demos antes de comunicarlo como diferencial. | Mensaje de lanzamiento | Producto |
+| PA-20 | Baja | ¿Qué límites tiene el plan gratuito de Bilog y cuánto cuestan sus planes pagos? Ambos figuran como "No evidenciado" (A.1). | Definición de precio (PA-12) | Producto |
+| PA-21 | Baja | ¿Dentalink factura con ARCA y declara cumplir la Ley 25.326? Ambos figuran como "No evidenciado" (A.3 y A.4). | Demo de competidores (D.1) | Equipo |

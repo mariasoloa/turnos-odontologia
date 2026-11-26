@@ -8,7 +8,7 @@
     "completed_on": "2026-11-24",
     "market_report": "docs/discovery/informe-discovery.md",
     "sources_fetched_at": "2026-11-24",
-    "sources_verification": "done (2026-11-25, 5 fuentes, Llerena Romina; informe v1.2)",
+    "sources_verification": "done (2026-11-25, 5 fuentes, Llerena Romina; informe v1.3)",
     "market_report_pdf": "docs/discovery/informe-discovery.pdf",
     "sources": [
       "https://www.softwaredentalink.com/ar", "https://bilog.com.ar/", "https://dentalsoft.com.ar/", "https://dentia.tech/",
@@ -20,10 +20,10 @@
     "competitors": [
       {"name": "Dentia", "notes_file": "docs/discovery/informe-discovery.md", "score": 4.55},
       {"name": "DentalSoft", "notes_file": "docs/discovery/informe-discovery.md", "score": 4.30},
-      {"name": "Oclusar", "notes_file": "docs/discovery/informe-discovery.md", "score": 3.95},
+      {"name": "Oclusar", "notes_file": "docs/discovery/informe-discovery.md", "score": 3.85},
       {"name": "Atiendo", "notes_file": "docs/discovery/informe-discovery.md", "score": 3.80},
       {"name": "Dentalink", "notes_file": "docs/discovery/informe-discovery.md", "score": 3.70},
-      {"name": "Bilog", "notes_file": "docs/discovery/informe-discovery.md", "score": 3.45}
+      {"name": "Bilog", "notes_file": "docs/discovery/informe-discovery.md", "score": 3.50}
     ],
     "problema": "Los consultorios odontológicos argentinos pierden tiempo coordinando turnos por WhatsApp/teléfono, les cuesta organizar la agenda de varios profesionales y sillones/boxes sin solapamientos, y sufren ausencias de pacientes sin aviso.",
     "usuarios": ["Paciente", "Recepcionista", "Odontólogo", "Administrador / dueño"],
@@ -74,7 +74,7 @@
       "Sin piloto no se puede medir si el recordatorio por email reduce ausencias"
     ],
     "preguntas_abiertas": [
-      "Qué SaaS odontológicos compiten, qué ofrecen y cuánto cobran",
+      "Qué SaaS odontológicos compiten, qué ofrecen y cuánto cobran (resuelta el 2026-11-25 en docs/discovery/informe-discovery.md)",
       "Precio, planes y prueba gratuita de la suscripción",
       "Inscripción ante la AAIP y texto de consentimiento del paciente",
       "Límite de las notas de la ficha para no guardar datos clínicos antes del módulo de historia clínica",

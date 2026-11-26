@@ -7,13 +7,13 @@
 | Campo | Valor |
 |---|---|
 | **Título** | Investigación de mercado: sistemas odontológicos de gestión de turnos y agenda (Argentina, Latinoamérica e internacional) |
-| **Materia** | Desarrollo de Software — Ingeniería en Sistemas de Infomración |
+| **Materia** | Desarrollo de Software — Ingeniería en Sistemas de Información |
 | **Trabajo** | Trabajo de Integración: del Discovery al primer Change, con Spec-Driven Development y Active Stack |
 | **Integrantes** | Laciar Yanela · Llerena Romina · Soloa María de los Ángeles · Urbani Constanza |
 | **Proyecto** | turnos-odontologia |
 | **Fecha del informe** | 25/11/2026 |
 | **Fecha de consulta de fuentes** | 24/11/2026 (relevamiento) y 25/11/2026 (verificación manual de cinco fuentes) |
-| **Versión** | 1.2 |
+| **Versión** | 1.3 |
 | **Elaborado por** | Integrantes del grupo, con asistencia de un agente de IA (Active Stack, skill `discovery-research`) |
 | **Revisado por** | Llerena Romina |
 | **Documento relacionado** | `docs/discovery/discovery.md` |
@@ -25,6 +25,7 @@
 | 1.0 | 24/11/2026 | Informe generado por el agente a partir de los sitios oficiales. |
 | 1.1 | 25/11/2026 | Verificación manual de cinco fuentes. Se cambiaron por error los planes y precios de Dentia (se registraron los de Dentalink). |
 | 1.2 | 25/11/2026 | Se revisó otra vez dentia.tech y se restauraron sus planes y precios; se incorporó el plan gratuito de Bilog; se agregó la fuente y la fecha a cada fila de la tabla A; "NE" pasó a "No evidenciado" y se alinearon los criterios con la distinción entre funcionalidad comprobada y afirmación comercial. |
+| 1.3 | 25/11/2026 | Se alinearon con la verificación manual todas las menciones a Oclusar: su marco normativo y la asignación de sillones no se pudieron comprobar, por lo que se quitó de los conteos de cumplimiento (resumen y C.3), se ajustaron A.2, A.5, C.2 y D.1 y su nota de "Seguridad, exportación y trazabilidad" bajó de 5 a 4 (total 3,95 → 3,85; conserva el puesto 3). Se corrigieron dos erratas. |
 
 ---
 
@@ -37,7 +38,7 @@ Hallazgos principales:
 1. **El mercado argentino está saturado en el segmento "gestión clínica integral".** Historia clínica, odontograma, obras sociales y presupuestos aparecen en casi todos los productos locales. Competir por amplitud clínica no es una estrategia viable para un producto nuevo.
 2. **WhatsApp es un estándar de facto, no un diferencial.** 14 de los 19 sistemas mencionan WhatsApp y 10 evidencian recordatorios o atención automatizada por ese canal; varios ya ofrecen asistentes de IA que agendan por ese canal (Dentia, Dentalink, Doctocliq, MR Dental Cloud, Clinicorp). El MVP definido en Discovery, que usa solo email, quedará por debajo del estándar local en este punto.
 3. **La facturación ARCA (ex AFIP) y Mercado Pago son expectativas locales.** Dentia, Oclusar, ZYRA y DentalTec declaran ARCA; DentalSoft, Dentia, Oclusar, Atiendo y Agenda Profesional declaran Mercado Pago (señas o cobros).
-4. **Vacíos detectados:** casi ningún proveedor evidencia **prevención de solapamientos combinando profesional y sillón/box** (solo Oclusar declara asignación de sillones con aviso de solapamiento; Clinic Cloud y Dentally gestionan salas/sillones fuera de Argentina). **Ningún proveedor evidencia una política automática de ausentismo configurable** (bloqueo de reserva tras N ausencias). La **adecuación normativa argentina** (Ley 25.326 y Ley 26.529) está declarada públicamente solo por una minoría (DentalSoft, Odonto.ar, Oclusar, Agenda Profesional, Dentia).
+4. **Vacíos detectados:** casi ningún proveedor evidencia **prevención de solapamientos combinando profesional y sillón/box** (solo Oclusar declara asignación de sillones con aviso de solapamiento, y la asignación de sillones no se confirmó en la verificación manual; Clinic Cloud y Dentally gestionan salas/sillones fuera de Argentina). **Ningún proveedor evidencia una política automática de ausentismo configurable** (bloqueo de reserva tras N ausencias). La **adecuación normativa argentina** (Ley 25.326 y Ley 26.529) está declarada públicamente solo por una minoría (DentalSoft, Odonto.ar, Agenda Profesional, Dentia).
 5. **Precios publicados en Argentina:** entre **ARS 15.000 y ARS 80.000 por mes** según plan (ZYRA, Dentia, DentalSoft, VecDent, Doctoralia), con planes gratuitos o pruebas de 30 días como práctica habitual.
 
 **Recomendación central:** posicionar el producto como **"agenda odontológica sin solapamientos y con control de ausentismo"**, con cumplimiento normativo visible y precio transparente, en lugar de competir como suite clínica. Se recomienda reconsiderar la incorporación temprana de recordatorios por WhatsApp (segunda etapa inmediata tras el MVP), dado que es el canal esperado por el mercado.
@@ -100,7 +101,7 @@ Ordenados por relevancia para el mercado argentino: oferta local explícita, esp
 | 2 | Bilog | ✔ día, semana y por profesional; sobreturnos ✔ | ◐ "múltiples consultorios" | No evidenciado | ✔ link o QR; chatbot iAngela | ◐ alta desde WhatsApp; recordatorios | ✔ WhatsApp, SMS y email | No evidenciado | ◐ reprogramación de ausentes con aviso |
 | 3 | DentalSoft | ✔ día, semana y mes; arrastrar y soltar; multisucursal | No evidenciado | ✔ detección automática | ✔ 24/7 desde web propia; identificación por DNI | ◐ automático solo en Pro (en Gestión es manual); recepcionista IA (Pro) | ✔ WhatsApp y email; la agenda se actualiza con la respuesta | No evidenciado | ◐ campañas de recuperación, cobro de deudas y reseñas (Pro) |
 | 4 | Dentia | Múltiples profesionales ✔; sobreturnos ✔; vistas No evidenciado | No evidenciado | No evidenciado | ◐ vía asistente IA en WhatsApp (plan Elite) | ✔ asistente IA 24/7 | ✔ email (Básico) o WhatsApp (Pro) | No evidenciado | ✔ recaptación, controles, cumpleaños, reseñas (Elite) |
-| 5 | Oclusar | ◐ vista del día; equipo con roles | ✔ asignación de sillones | ✔ aviso automático | ✔ página propia; link por WhatsApp e Instagram | ◐ recordatorio manual "con un toque" | ◐ el paciente confirma desde el celular | No evidenciado | No evidenciado |
+| 5 | Oclusar | ◐ vista del día; equipo con roles | ◐ asignación de sillones (relevamiento inicial; no confirmada en la verificación manual) | ✔ aviso automático | ✔ página propia; link por WhatsApp e Instagram | ◐ recordatorio manual "con un toque" | ◐ el paciente confirma desde el celular | No evidenciado | No evidenciado |
 | 6 | ZYRA | ◐ "agenda/calendario completo" | No evidenciado | No evidenciado | No evidenciado | ✔ vinculación del número propio por QR (no se indica API oficial) | ✔ WhatsApp automático (día anterior) y email; confirmación SÍ/NO | No evidenciado | ◐ módulo de fidelización (sin detalle) |
 | 7 | DentalTec | ✔ por odontólogo, con intervalos configurables | No evidenciado | No evidenciado | No evidenciado | ✔ "integración oficial" (sin precisar si es API) | ✔ WhatsApp al crear el turno; confirmación | No evidenciado | No evidenciado. Reducción de 40 % del ausentismo _[afirmación comercial]_ |
 | 8 | Odonto.ar | ✔ día, semana y mes; duración por motivo | No evidenciado | No evidenciado | ✔ link con reglas de anticipación y cancelación | No evidenciado | No evidenciado | No evidenciado | No evidenciado |
@@ -146,9 +147,9 @@ Ordenados por relevancia para el mercado argentino: oferta local explícita, esp
 |---|---|---|---|---|---|---|---|
 | 1 | Dentalink | No evidenciado | ✔ adicional | Roles ✔; auditoría No evidenciado | ✔ | ✔ (Pro) | ISO 27001, AWS, cifrado, respaldos diarios, HIPAA. Ley 25.326: No evidenciado |
 | 2 | Bilog | ◐ "calendario" | ✘ sin API documentada | Roles ✔; ◐ trazabilidad en auditoría de obras sociales | No evidenciado | ✔ | Ley 25.506 (firma). Ley 25.326 y respaldos: No evidenciado |
-| 3 | DentalSoft | ✔ por profesional | No evidenciado | Roles ✔; registros de actividad ✔ | ✔ e importación desde Excel/CSV | ✔ | **Ley 25.326(confirmada en la política de privacidad); AAIP: no evidenciada en esa página**; TLS; hash; base aislada por clínica |
+| 3 | DentalSoft | ✔ por profesional | No evidenciado | Roles ✔; registros de actividad ✔ | ✔ e importación desde Excel/CSV | ✔ | **Ley 25.326 (confirmada en la política de privacidad); AAIP: no evidenciada en esa página**; TLS; hash; base aislada por clínica |
 | 4 | Dentia | ✔ | No evidenciado | 17 perfiles ✔; auditoría ✔; 2FA ✔ | ✔ | ✔ | **Ley 25.326**. Respaldos: No evidenciado |
-| 5 | Oclusar | ✔ bidireccional | No evidenciado | Roles ✔; correcciones con fecha y autor ✔ | ✔ completa, con imágenes | No evidenciado | **Marco normativo: no se verificó en la revisión manual de la fuente oficial consultada; requiere confirmación documental.**; SHA-256; copias diarias |
+| 5 | Oclusar | ✔ bidireccional | No evidenciado | Roles ✔; correcciones con fecha y autor ✔ | ✔ completa, con imágenes | No evidenciado | **Marco normativo: no se verificó en la revisión manual de la fuente oficial consultada; requiere confirmación documental.** SHA-256; copias diarias |
 | 6 | ZYRA | No evidenciado | No evidenciado | Permisos granulares ✔; auditoría No evidenciado | No evidenciado | No evidenciado | "Datos encriptados y respaldados" _[afirmación comercial]_ |
 | 7 | DentalTec | No evidenciado | No evidenciado | 10 roles ✔; auditoría ✔ | ◐ reportes en PDF y Excel | ◐ multientidad | JWT, bcrypt, respaldo automático. Ley 25.326: No evidenciado |
 | 8 | Odonto.ar | No evidenciado | No evidenciado | Permisos ✔; ◐ auditoría del odontograma | No evidenciado | No evidenciado | **Ley 25.326 (confirmada en la política de privacidad); AAIP: no evidenciada en esa página**; cifrado en tránsito y en reposo; RLS. Datos posiblemente fuera de Argentina |
@@ -172,7 +173,7 @@ Ordenados por relevancia para el mercado argentino: oferta local explícita, esp
 | 2 | Bilog | Trayectoria local (+20 años); cobertura de obras sociales y liquidaciones; app móvil | Precios no publicados; poca información de seguridad; sin API pública | Perfiles para auditoría de obras sociales y facultades |
 | 3 | DentalSoft | Precios y plan gratuito publicados; prevención de solapamientos; cumplimiento de la Ley 25.326 detallado; web propia incluida | WhatsApp automático solo en Pro; ARCA no evidenciada | Software integrado con sitio web de la clínica y reserva 24/7 |
 | 4 | Dentia | La cobertura más completa del relevamiento (clínica, ARCA, Mercado Pago, WhatsApp IA); precios accesibles; prueba de 30 días | Funciones IA clave solo en Elite; detalle de agenda no publicado | Asistente IA que agenda por WhatsApp y cobra seña |
-| 5 | Oclusar | Mayor nivel de cumplimiento normativo declarado; historia clínica inalterable; aviso de solapamiento de turnos confirmado (asignación de sillones no verificada) | Sin precios publicados; recordatorios manuales | Historia clínica con validez legal explicada y red de proveedores (Red Oclusar) 
+| 5 | Oclusar | Trazabilidad clínica declarada (evoluciones inalterables, correcciones con fecha y autor); exportación completa; aviso de solapamiento de turnos confirmado (asignación de sillones no verificada) | Sin precios publicados; recordatorios manuales; marco normativo no verificado | Historia clínica con evoluciones inalterables y red de proveedores (Red Oclusar) |
 | 6 | ZYRA | Precios bajos y publicados; ARCA homologada; recordatorios automáticos por WhatsApp | Reserva online del paciente no evidenciada; adopción baja declarada; seguridad sin detalle | Liquidación automática de honorarios y control de stock |
 | 7 | DentalTec | Validación de prácticas contra obras sociales en línea; ARCA; integración con círculos odontológicos | Sin reserva online evidenciada; precio no publicado; foco institucional | Validación preventiva de prácticas con obras sociales |
 | 8 | Odonto.ar | Precio transparente por usuario; prueba sin tarjeta; política de privacidad detallada | Sin recordatorios, WhatsApp ni ARCA evidenciados | Reserva online con reglas configurables |
@@ -204,7 +205,8 @@ Ordenados por relevancia para el mercado argentino: oferta local explícita, esp
 - **Tratamiento de "No evidenciado":** un dato "No evidenciado" se puntúa como ausencia (criterio conservador). La puntuación mide **la evidencia pública disponible**, no la capacidad real del producto. Un sistema con poca documentación pública (Reservo, OdontoGRAMA, VecDent) puede estar subvaluado, y eso debe corregirse en las demos.
 - **Integraciones de otros países:** las integraciones que no aplican a Argentina (SAT, NFS-e, NHS, Verifactu) no suman en el criterio "Integraciones locales y WhatsApp".
 - **Afirmaciones comerciales:** las afirmaciones sin detalle no suman.
-- **Ajuste por la verificación manual (v1.2):** Bilog pasa de 2 a 3 en "Precio y facilidad de adopción" por el plan gratuito confirmado el 25/11/2026 (total 3,45 → 3,50; conserva el puesto 8). El resto de las notas no cambia.
+- **Ajuste por la verificación manual (v1.2):** Bilog pasa de 2 a 3 en "Precio y facilidad de adopción" por el plan gratuito confirmado el 25/11/2026 (total 3,45 → 3,50; conserva el puesto 8).
+- **Ajuste por coherencia con la verificación manual (v1.3):** Oclusar pasa de 5 a 4 en "Seguridad, exportación y trazabilidad" porque su marco normativo no se pudo comprobar en la fuente oficial; se mantienen la trazabilidad, la exportación y los respaldos declarados (total 3,95 → 3,85; conserva el puesto 3). El resto de las notas no cambia.
 - **Puntaje total:** Σ (nota × peso). Los pesos son T 25 %, C 20 %, I 15 %, A 15 %, P 10 %, S 10 % y $ 5 %.
 
 **Referencias de columnas:**
@@ -220,7 +222,7 @@ Ordenados por relevancia para el mercado argentino: oferta local explícita, esp
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | Dentia | 4 | 5 | 5 | 5 | 4 | 4 | 5 | **4,55** |
 | 2 | DentalSoft | 5 | 4 | 4 | 4 | 4 | 4 | 5 | **4,30** |
-| 3 | Oclusar | 3 | 4 | 5 | 4 | 4 | 5 | 3 | **3,95** |
+| 3 | Oclusar | 3 | 4 | 5 | 4 | 4 | 4 | 3 | **3,85** |
 | 4 | Atiendo | 4 | 4 | 3 | 3 | 5 | 4 | 4 | **3,80** |
 | 5 | Dentalink | 4 | 5 | 3 | 3 | 3 | 4 | 2 | **3,70** |
 | 5 | Clinicorp _(referencia, Brasil)_ | 5 | 5 | 1 | 3 | 4 | 3 | 3 | **3,70** |
@@ -241,7 +243,7 @@ Ordenados por relevancia para el mercado argentino: oferta local explícita, esp
 **Lectura crítica:**
 - Los primeros puestos se concentran en productos argentinos recientes con documentación pública abundante (Dentia, DentalSoft, Oclusar). Esto refleja tanto amplitud funcional como **transparencia comunicacional**.
 - Bilog y Dentalink, con mayor escala declarada, puntúan por debajo de su posición real de mercado porque no publican precios y documentan poco su cumplimiento normativo.
-- La prevención de solapamientos es la funcionalidad de agenda peor documentada del relevamiento: solo DentalSoft y Oclusar la evidencian, y solo Oclusar la combina con la asignación de sillones.
+- La prevención de solapamientos es la funcionalidad de agenda peor documentada del relevamiento: solo DentalSoft y Oclusar la evidencian, y solo Oclusar declara combinarla con la asignación de sillones, un dato del relevamiento inicial que no se confirmó en la verificación manual.
 
 ---
 
@@ -264,7 +266,7 @@ Presentes en la mayoría de los productos argentinos relevados; un producto nuev
 
 - **Asistentes de IA que agendan, reprograman y cobran seña por WhatsApp** (Dentia, Dentalink, Doctocliq, MR Dental Cloud, Clinicorp). Es una tendencia en rápida expansión que pronto será estándar.
 - **Validación en línea de prácticas contra obras sociales** (DentalTec): ataca los débitos, un dolor económico concreto.
-- **Historia clínica inalterable con validez legal explicada** (Oclusar).
+- **Historia clínica con evoluciones inalterables y correcciones con fecha y autor** (Oclusar).
 - **Lista de espera que cubre cancelaciones automáticamente** (Atiendo, Agenda Profesional, Dentally).
 - **Marketplace de pacientes** (Doctoralia): genera demanda, no solo la gestiona.
 - **Automatizaciones de retorno y recaptación** (Clinicorp, Dentia, Dentally).
@@ -273,7 +275,7 @@ Presentes en la mayoría de los productos argentinos relevados; un producto nuev
 
 1. **Sillón/box como recurso de agenda con doble restricción.** Casi ningún producto local evidencia la gestión de sillones combinada con prevención de solapamientos. Es un problema operativo real para clínicas con más profesionales que sillones.
 2. **Política de ausentismo configurable.** Varios registran inasistencias o muestran estadísticas, pero **ninguno evidencia bloqueo de reserva online tras N ausencias** ni separación entre ausencia y cancelación tardía.
-3. **Cumplimiento normativo visible.** Solo 5 de 19 citan la Ley 25.326 y solo 2 (Oclusar y Agenda Profesional) citan la Ley 26.529, pese a tratar datos de salud.
+3. **Cumplimiento normativo visible.** Solo 4 de 19 citan la Ley 25.326 (DentalSoft, Dentia, Odonto.ar y Agenda Profesional) y solo 1 (Agenda Profesional) cita la Ley 26.529, pese a tratar datos de salud. En Oclusar el marco normativo no se pudo verificar.
 4. **Transparencia de precios en los líderes.** Dentalink, Bilog, Oclusar, DentalTec y Agenda Profesional no publican precios.
 5. **APIs públicas.** Ningún producto de origen argentino evidencia una API pública documentada (Bilog declara no tenerla).
 6. **Identificación del paciente sin cuenta y sin fricción.** Solo DentalSoft (DNI) y Atiendo (sin contraseña) lo hacen explícito.
@@ -298,7 +300,7 @@ Presentes en la mayoría de los productos argentinos relevados; un producto nuev
 | 2 | **DentalSoft** | Competidor más próximo en agenda (solapamientos, reserva 24/7 por DNI) y en cumplimiento de la Ley 25.326; tiene plan gratuito. |
 | 3 | **Dentalink** | Mayor escala declarada en la región; define la expectativa de "suite completa" de clínicas medianas. |
 | 4 | **Bilog** | Actor local con mayor base declarada (+1.500 clínicas); referencia de obras sociales y soporte local. |
-| 5 | **Oclusar** | Único que evidencia sillones con aviso de solapamiento y el estándar más alto de cumplimiento normativo declarado. |
+| 5 | **Oclusar** | Único que declara asignación de sillones con aviso de solapamiento. El aviso se confirmó en la verificación manual; la asignación de sillones y el marco normativo deben comprobarse en la demo. |
 
 _Alternativa:_ **Atiendo**, si se busca contrastar con el competidor de alcance más parecido al MVP (centrado en turnos, reserva sin cuenta y lista de espera).
 
@@ -350,7 +352,7 @@ El 25/11/2026 se volvieron a consultar cinco fuentes oficiales, una por sistema,
 |---|---|---|---|---|---|---|
 | 1 | Dentia · inicio con precios | https://dentia.tech/ | Planes Básico, Pro y Elite a ARS 20.000, 30.000 y 40.000 por mes; prueba de 30 días. | La página publica Básico ($20.000/mes), Pro ($30.000/mes) y Elite ($40.000/mes), con precio anual aparte, 30 días gratis y sin contratos. | **Confirmado** (en la segunda revisión) | En la v1.1 se registró por error que Dentia ofrecía planes Esencial, Pro y Titanium a cotizar, que son los datos de Dentalink (fila 5). Al volver a abrir la página se detectó la confusión y se restauraron los datos originales en el resumen, en A.1, en A.5 y en D.1. |
 | 2 | DentalSoft · política de privacidad | https://www.dentalsoft.com.ar/privacidad | Mención de la Ley 25.326 y de la AAIP; detección de solapamientos en la agenda. | La política declara que protege los datos personales y menciona expresamente el cumplimiento de la Ley 25.326. | **Confirmado parcialmente** | La mención de la AAIP y la detección de solapamientos no se comprobaron en esta página; quedan como dato del relevamiento inicial, sin validación manual. |
-| 3 | Oclusar · inicio | https://www.oclusar.com.ar/ | Asignación de sillones con aviso de solapamiento; leyes 26.529 y 25.326. | Reserva online por enlace compartido por WhatsApp o Instagram, turnos que ingresan a la agenda, aviso de superposición, recordatorios por WhatsApp, señas con Mercado Pago, historia clínica y odontograma. | **Confirmado** para las funciones descritas | La asignación específica de sillones no se pudo comprobar en esta revisión: se mantiene como dato del relevamiento inicial, no como dato verificado. |
+| 3 | Oclusar · inicio | https://www.oclusar.com.ar/ | Asignación de sillones con aviso de solapamiento; leyes 26.529 y 25.326. | Reserva online por enlace compartido por WhatsApp o Instagram, turnos que ingresan a la agenda, aviso de superposición, recordatorios por WhatsApp, señas con Mercado Pago, historia clínica y odontograma. | **Confirmado** para las funciones descritas | La asignación específica de sillones no se pudo comprobar en esta revisión: se mantiene como dato del relevamiento inicial, no como dato verificado. Las leyes 26.529 y 25.326 tampoco aparecieron en la página: en la v1.3 se quitó Oclusar de los conteos de cumplimiento normativo y se ajustaron A.2, A.5, B, C.2, C.3 y D.1. |
 | 4 | Bilog · inicio | https://bilog.com.ar/ | Más de 1.500 clínicas; precios no publicados; sin plan gratuito evidenciado. | Plan gratuito; agenda, historia clínica, recordatorios, turnos online, alta por QR y app móvil; funciones para clínicas. Declara más de 1.500 clínicas y consultorios. No muestra precios. | **Diferente** (plan gratuito) | Se agregó el plan gratuito en A.1 y se subió de 2 a 3 la nota de "Precio y facilidad de adopción" (matriz B). La cifra de 1.500 clínicas se marcó como afirmación comercial. |
 | 5 | Dentalink · página de planes | https://www.softwaredentalink.com/ar/planes | Precios no publicados. | Planes Esencial, Pro y Titanium; cada uno pide solicitar una cotización. No se muestran precios. | **Confirmado** | Se agregaron los nombres de los planes en A.1. |
 
