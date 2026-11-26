@@ -146,12 +146,12 @@ Ordenados por relevancia para el mercado argentino: oferta local explícita, esp
 |---|---|---|---|---|---|---|---|
 | 1 | Dentalink | No evidenciado | ✔ adicional | Roles ✔; auditoría No evidenciado | ✔ | ✔ (Pro) | ISO 27001, AWS, cifrado, respaldos diarios, HIPAA. Ley 25.326: No evidenciado |
 | 2 | Bilog | ◐ "calendario" | ✘ sin API documentada | Roles ✔; ◐ trazabilidad en auditoría de obras sociales | No evidenciado | ✔ | Ley 25.506 (firma). Ley 25.326 y respaldos: No evidenciado |
-| 3 | DentalSoft | ✔ por profesional | No evidenciado | Roles ✔; registros de actividad ✔ | ✔ e importación desde Excel/CSV | ✔ | **Ley 25.326 y AAIP**; TLS; hash; base aislada por clínica |
+| 3 | DentalSoft | ✔ por profesional | No evidenciado | Roles ✔; registros de actividad ✔ | ✔ e importación desde Excel/CSV | ✔ | **Ley 25.326(confirmada en la política de privacidad); AAIP: no evidenciada en esa página**; TLS; hash; base aislada por clínica |
 | 4 | Dentia | ✔ | No evidenciado | 17 perfiles ✔; auditoría ✔; 2FA ✔ | ✔ | ✔ | **Ley 25.326**. Respaldos: No evidenciado |
-| 5 | Oclusar | ✔ bidireccional | No evidenciado | Roles ✔; correcciones con fecha y autor ✔ | ✔ completa, con imágenes | No evidenciado | **Leyes 26.529, 25.326 y 25.506; Decreto 1089/2012**; SHA-256; copias diarias |
+| 5 | Oclusar | ✔ bidireccional | No evidenciado | Roles ✔; correcciones con fecha y autor ✔ | ✔ completa, con imágenes | No evidenciado | **Marco normativo: no se verificó en la revisión manual de la fuente oficial consultada; requiere confirmación documental.**; SHA-256; copias diarias |
 | 6 | ZYRA | No evidenciado | No evidenciado | Permisos granulares ✔; auditoría No evidenciado | No evidenciado | No evidenciado | "Datos encriptados y respaldados" _[afirmación comercial]_ |
 | 7 | DentalTec | No evidenciado | No evidenciado | 10 roles ✔; auditoría ✔ | ◐ reportes en PDF y Excel | ◐ multientidad | JWT, bcrypt, respaldo automático. Ley 25.326: No evidenciado |
-| 8 | Odonto.ar | No evidenciado | No evidenciado | Permisos ✔; ◐ auditoría del odontograma | No evidenciado | No evidenciado | **Ley 25.326 y AAIP**; cifrado en tránsito y en reposo; RLS. Datos posiblemente fuera de Argentina |
+| 8 | Odonto.ar | No evidenciado | No evidenciado | Permisos ✔; ◐ auditoría del odontograma | No evidenciado | No evidenciado | **Ley 25.326 (confirmada en la política de privacidad); AAIP: no evidenciada en esa página**; cifrado en tránsito y en reposo; RLS. Datos posiblemente fuera de Argentina |
 | 9 | VecDent | No evidenciado | No evidenciado | Roles ✔ | No evidenciado | ✔ multiconsultorio | "Permisos por usuario" _[afirmación comercial]_ |
 | 10 | Atiendo | ✔ | No evidenciado | Roles ✔; registro de accesos a la historia clínica ✔ | ✔ PDF y al dar de baja | No evidenciado | Cifrado, copias diarias, datos separados por consultorio. Política de privacidad no legible |
 | 11 | Agenda Profesional | ◐ solo enlaces, sin sincronización | No evidenciado | ◐ cuentas de equipo | No evidenciado | No evidenciado | **Leyes 25.326 y 26.529**; contraseñas cifradas. Respaldo a cargo del profesional |
@@ -172,7 +172,7 @@ Ordenados por relevancia para el mercado argentino: oferta local explícita, esp
 | 2 | Bilog | Trayectoria local (+20 años); cobertura de obras sociales y liquidaciones; app móvil | Precios no publicados; poca información de seguridad; sin API pública | Perfiles para auditoría de obras sociales y facultades |
 | 3 | DentalSoft | Precios y plan gratuito publicados; prevención de solapamientos; cumplimiento de la Ley 25.326 detallado; web propia incluida | WhatsApp automático solo en Pro; ARCA no evidenciada | Software integrado con sitio web de la clínica y reserva 24/7 |
 | 4 | Dentia | La cobertura más completa del relevamiento (clínica, ARCA, Mercado Pago, WhatsApp IA); precios accesibles; prueba de 30 días | Funciones IA clave solo en Elite; detalle de agenda no publicado | Asistente IA que agenda por WhatsApp y cobra seña |
-| 5 | Oclusar | Mayor nivel de cumplimiento normativo declarado; historia clínica inalterable; sillones y aviso de solapamiento | Sin precios publicados; recordatorios manuales | Historia clínica con validez legal explicada y red de proveedores (Red Oclusar) |
+| 5 | Oclusar | Mayor nivel de cumplimiento normativo declarado; historia clínica inalterable; aviso de solapamiento de turnos confirmado (asignación de sillones no verificada) | Sin precios publicados; recordatorios manuales | Historia clínica con validez legal explicada y red de proveedores (Red Oclusar) 
 | 6 | ZYRA | Precios bajos y publicados; ARCA homologada; recordatorios automáticos por WhatsApp | Reserva online del paciente no evidenciada; adopción baja declarada; seguridad sin detalle | Liquidación automática de honorarios y control de stock |
 | 7 | DentalTec | Validación de prácticas contra obras sociales en línea; ARCA; integración con círculos odontológicos | Sin reserva online evidenciada; precio no publicado; foco institucional | Validación preventiva de prácticas con obras sociales |
 | 8 | Odonto.ar | Precio transparente por usuario; prueba sin tarjeta; política de privacidad detallada | Sin recordatorios, WhatsApp ni ARCA evidenciados | Reserva online con reglas configurables |
@@ -344,7 +344,7 @@ _Alternativa:_ **Atiendo**, si se busca contrastar con el competidor de alcance 
 
 ## Verificación de fuentes
 
-El 25/11/2026 se volvieron a abrir cinco fuentes oficiales, una por sistema y de distinto tipo (inicio con precios, página de planes, política de privacidad), elegidas por su impacto en las conclusiones. Se registra solo lo que se pudo observar en cada página. Comprobar una característica en el sitio no equivale a haber probado el sistema.
+El 25/11/2026 se volvieron a consultar cinco fuentes oficiales, una por sistema, seleccionadas por su impacto en las conclusiones. Se revisaron páginas de inicio, una página de planes y una política de privacidad. Se registra únicamente lo que pudo observarse en cada fuente. La comprobación de una característica en el sitio web no equivale a haber probado el funcionamiento del sistema.
 
 | # | Sistema · tipo de fuente | URL revisada | Qué afirmaba el informe | Qué se encontró | Resultado | Qué se corrigió |
 |---|---|---|---|---|---|---|
